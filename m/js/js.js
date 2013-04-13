@@ -231,8 +231,6 @@ function windowResize(){
 	var formMargin = (containerHeight - formHeight)/2;
 	formMargin = formMargin < 0 ? 0 : formMargin;
 
-	$(".section4 .content_wrap").css({'margin-top':formMargin});
-
 	var sliderWidthOffset2 = parseInt(($('#accordion_slider').width() - sliderImgWidth)*0.5);
 	$("#slider2").css({'left':sliderWidthOffset2,'width':sliderImgWidth});
 	$(".slider_wrap img").css({'left':0});

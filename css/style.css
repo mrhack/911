@@ -40,11 +40,11 @@ tr.odd {background-color: #dddddd;}
 .section1 .car1{ width:100%; overflow:hidden}
 .section1 .content_wrap{ position:absolute; left:0; top:0; width:100%;height:400px;overflow:hidden;}
 .section1 .content{ width:960px; min-height:264px; margin:0 auto;}
-.section4 .text2_1{ width:357px; height:76px; background:url(../images/text2_1.png) no-repeat; text-indent:-10000px; overflow:hidden; position:absolute; top:120px; left:310px;}
-.section4 .text2{ width:601px; line-height:1.6em; text-align:center;font-family:黑体;font-size:16px;color:#6f6f6f;overflow:hidden; position:absolute; top:210px; left:181px;}
-.section4 .text2_3 { width:186px; height:59px; background:url(../images/text2_3.png) no-repeat; text-indent:-10000px; overflow:hidden; position:absolute; top:186px; left:2000px;}
+.section4 .text2_1{ width:357px; height:76px; background:url(../images/text2_1.png) no-repeat; text-indent:-10000px; overflow:hidden; position:absolute; top:20px; left:310px;}
+.section4 .text2{ width:601px; line-height:1.6em; text-align:center;font-family:黑体;font-size:16px;color:#6f6f6f;overflow:hidden; position:absolute; top:110px; left:181px;}
+.section4 .text2_3 { width:186px; height:59px; background:url(../images/text2_3.png) no-repeat; text-indent:-10000px; overflow:hidden; position:absolute; top:86px; left:2000px;}
 
-.baoming2{ width:190px; height:67px; background:url(../images/baoming_botton2.png) no-repeat; position:absolute; top:368px; left:374px; text-indent:-10000px; overflow:hidden;}
+.baoming2{ width:190px; height:67px; background:url(../images/baoming_botton2.png) no-repeat; position:absolute; top:268px; left:374px; text-indent:-10000px; overflow:hidden;}
 .baoming2 a{ display:block; width:185px; height:62px;}
 .baoming2:hover {opacity:0.7;}
 
@@ -67,9 +67,10 @@ tr.odd {background-color: #dddddd;}
 .baoming1{ width:122px; height:37px; background:url(../images/baoming_botton.jpg); display:block; position:absolute; top:280px; left:0; text-indent:-10000px; overflow:hidden;}
 .baoming1:hover {opacity:0.7;}
 
-.page2 .content_wrap{ height:694px; }
-.page3 .content_wrap{ height:694px; }
-.page4 .content_wrap{ height:694px; }
+.page2 .content_wrap , .page3 .content_wrap , .page4 .content_wrap{
+    height:694px; margin-top:100px;
+    background: url(../images/bg1.png);
+}
 
 .form2{  font-family:arial,'simhei'; z-index:11;}
 .form2 label.error{ display:none;color:#A5A5A5;font-size:12px;font-weight:normal;margin:0 0 0 5px;}
@@ -84,14 +85,14 @@ tr.odd {background-color: #dddddd;}
 .forrm_submit{width:190px; height:67px; background:url(../images/baoming_botton3.png) no-repeat; position:absolute; margin-left:43px;}
 .forrm_submit input{width:185px; height:61px; border:none;text-indent:-10000px; overflow:hidden; background:none;cursor:pointer;}
 .forrm_submit:hover {opacity:0.7;}
-.section4 h2 {top:110px;}
-.section4 .form_field1 {top:155px;}
-.section4 .form_field2 {top:216px;}
-.section4 .form_field3 {top:277px}
-.section4 .form_field4 {top:340px;}
-.section4 .form_field5 {top:410px;}
-.section4 .form_field6 {top:480px;}
-.section4 .form_field7 {top:550px;}
+.section4 h2 {top:10px;}
+.section4 .form_field1 {top:55px;}
+.section4 .form_field2 {top:116px;}
+.section4 .form_field3 {top:177px}
+.section4 .form_field4 {top:240px;}
+.section4 .form_field5 {top:310px;}
+.section4 .form_field6 {top:380px;}
+.section4 .form_field7 {top:450px;}
 .form_field4 label.error { position:absolute;left:304px;top:-7px;width:150px;}
 .form_field5 label.error { position:absolute;left:304px;top:-7px;width:160px;}
 .form_field6 label.error { position:absolute;left:244px;top:21px;width:160px;}

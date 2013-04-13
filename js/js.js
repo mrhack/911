@@ -126,11 +126,6 @@ $(function() {
 				$slider3.css({'margin-top':(height*2-scrollTop)*0.1});
 			}
 
-			if( height * 2 - scrollTop < 0 ){
-				var offset = (height*3-scrollTop)*0.2;
-				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
-			}
-
 			if( height * 3 - scrollTop  < 300){
 				if(!formOpened){
 					$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
@@ -555,7 +550,6 @@ function windowResize(){
 	   var formMargin = (containerHeight - formHeight)/2;
 	   formMargin = formMargin < 0 ? 0 : formMargin;
 
-	   $s4Wrap.css({'margin-top':formMargin});
 
 	   var sliderWidthOffset2 = parseInt(($acc.width() - sliderImgWidth)*0.5);
 	   $("#slider2").css({'left':sliderWidthOffset2,'width':sliderImgWidth});
