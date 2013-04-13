@@ -213,6 +213,7 @@ div.fancybox-skin{
 }
 div.fancybox-title{
     position: absolute;
+    _position: static;
     bottom: 0;
     background: url('../images/opacity.png');
     right : 0;

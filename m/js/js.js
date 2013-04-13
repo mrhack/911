@@ -76,12 +76,12 @@ $(function() {
 		});
 
 		var $left = $slider.find('.slider_left').click(function(){
-			if( swipeIndex == swipeLength - 1 ) return;
-			swipeToEl( ++swipeIndex );
-		});
-		var $right = $slider.find('.slider_right').click(function(){
 			if( swipeIndex == 0 ) return;
 			swipeToEl( --swipeIndex );
+		});
+		var $right = $slider.find('.slider_right').click(function(){
+			if( swipeIndex == swipeLength - 1 ) return;
+			swipeToEl( ++swipeIndex );
 		});
 
 		function resetBtnTop( index ){

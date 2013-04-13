@@ -135,12 +135,12 @@ $(function() {
 				}
 			}
 			//scrolling section1
-			$t1.css({'margin-left':- scrollTop*0.5 , opacity : 1 - 1.3 * scrollTop / height });
-			$t2.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
-			$t3.css({'margin-left':- scrollTop*0.3 , opacity : 1 - 1.3 * scrollTop / height });
-			$t4.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height });
-			$t5.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
-			$bm.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height - 0.3 });
+			$t1.css({'margin-left':- scrollTop*0.5 , opacity : Math.max(0 , 1 - 1.3 * scrollTop / height )});
+			$t2.css({'margin-left':- scrollTop*0.4 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
+			$t3.css({'margin-left':- scrollTop*0.3 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
+			$t4.css({'margin-left':- scrollTop*0.1 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
+			$t5.css({'margin-left':- scrollTop*0.4 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
+			$bm.css({'margin-left':- scrollTop*0.1 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height - 0.3) });
 		});
 
 	$s4.find('.text2_1 , .text2 , .baoming2')
