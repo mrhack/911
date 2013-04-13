@@ -25,17 +25,17 @@ $(function() {
 		$(".share1").removeClass("share1_active");
     }
     function closeShare2(){
-        $(".share_li2").stop(true,true).hide();
+        $(".share_li2").stop(true,true).fadeOut();
 		$(".share2").removeClass("share2_active");
     }
-    $('.share_cancel').tap(function(){
+    $('.share_cancel').click(function(){
 		closeShare1();
         closeShare2();
 	});
 
 	$(".share2").tap(function(){
         closeShare1();
-		$(".share_li2").stop(true,true).show();
+		$(".share_li2").stop(true,true).fadeIn();
 		$(".share2").addClass("share2_active");
         return false;
 	  });
