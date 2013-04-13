@@ -52,8 +52,8 @@ tr.odd {background-color: #dddddd;}
 #session4_1 h1{ font-size:40px; overflow:hidden;text-align: center;
 margin-top: 100px;}
 #session4_1 p{ font-size:16px; color:#323232; width:auto;margin: 10px 10% 30px; line-height:150%;}
-.baoming {background:url(../images/baoming.png) no-repeat; width:190px; height:67px;margin:0 auto;}
-.baoming a{ width:183px; height:67px; display:block; text-indent:-1111px; overflow:hidden;}
+
+.baoming {margin:0 auto;}
 #session4_2 {display:none;margin:20px auto 0;}
 #session4_3 {display:none;}
 #session4_3 h1 { text-align:center;font-size: 40px;color: #6D6D6D; overflow:hidden; margin:60px auto;}
@@ -77,7 +77,12 @@ margin-top: 100px;}
 .share_li .a11{background-position: -450px -180px ;}
 
 .share_cancel{background: black; padding: 15px 0 30px;}
-.share_cancel .btn{width: 275px; height: 48px;margin: 0 auto; background: url(../images/share_cancel.png) no-repeat;}
+.share_cancel .btn{width: 275px; height: 48px;margin: 0 auto; background: url(../images/share_cancel.png) no-repeat;
+    text-align: center;
+color: white;
+line-height: 45px;
+font-size: 20px;
+}
 
 .share2{ background-position:-143px -117px; left:150px;}
 .share3{ background-position:-286px -117px; left:270px;}
@@ -93,12 +98,11 @@ margin-top: 100px;}
 .form2 input{ border:none;font-size:18px; padding:10px 0px; margin:0; background:white; border:1px solid #c8c8c8; width:100%;}
 .form2 select{ border:none;font-size:18px; padding:4px; margin:0; background:#d3d3d3; width:300px;}
 .form_field6{width:435px;margin:65px auto 0;}
-.agree{ margin-right:2%;background:url(../images/doc.png) no-repeat;float:left; height:18px;width: 190px;height:67px; line-height:67px;font-size:18px;}
+.agree{ margin-right:2%;background:url(../images/btn.png) no-repeat;float:left; height:18px;width: 190px;height:67px; line-height:67px;font-size:18px;}
 .agree input{ float:left; width:15px; height:15px;margin:0 4px 0 0;}
-.agree a{ color:#818181; text-decoration:underline;}
-.forrm_submit{ float:left; width:190px; height:67px; background:url(../images/baoming_botton3.png);}
-.forrm_submit input{border:none;width:185px; height:61px;text-indent:-10000px; overflow:hidden; background:none;}
-.agree_doc{text-indent: -10000px;display: block;width:100%;height:100%;}
+.agree a{ color:#818181; }
+.forrm_submit{ float:left; }
+.agree_doc{display: block;width:100%;height:100%;}
 
 #accordion h3{ padding:none;background:url(../images/slider.png) repeat-x;height:84px;overflow:hidden;line-height:84px;color:#7f7f7f;padding:0 0 0 33px;font-size:23px;}
 #accordion h3:hover{color:#333;}
@@ -143,6 +147,7 @@ z-index: 1;}
 .video_wrap{position:absolute;top:16px;left:19px;right:20px;bottom:29px;background: black;}
 .video1 .video{position:absolute;}
 
-
+.bigbtn{font-family:黑体;background:url(../images/btn.png) no-repeat; width:190px; height:67px;}
+.bigbtn a,.bigbtn input{padding: 0;
+border: none;background:none;text-indent:0;text-align: center; width:100%; height:100%;display:block;text-decoration: none; font-size: 22px; color:#626262; line-height: 65px;}
 /* for english */
-.en
