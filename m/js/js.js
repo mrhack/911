@@ -152,7 +152,10 @@ $(function() {
 
 	});
 
-
+	$('.lang').click(function(){
+		window.location.href = $(this).attr('href');
+		return false;
+	});
 	var isEn = $('body').hasClass('en');
 	var _str_user_name="请输入姓名";
 	var _str_chexing="请选择您感兴趣的车型";
@@ -172,6 +175,7 @@ $(function() {
 		var _str_email = "Please enter the mailbox";
 		var _str_agree = "Please read the Privacy Policy";
 	}
+
 	$("#signupForm").validate({
 		rules: {
 			user_name: "required",
