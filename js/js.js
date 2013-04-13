@@ -1,7 +1,6 @@
 //DD_belatedPNG.fix('div, ul, img, li, input , a');
 var formOpened = 0;
 var whereIam = null;
-var isInitFlash = false;
 var isie6 = $.browser.msie && $.browser.version == 6;
 $(function() {
 
@@ -39,7 +38,6 @@ $(function() {
 	$('#section_home').anystretch("images/car1.jpg");
 	$loadLeft.anystretch("images/loading_left.jpg",{'positionX':'right','elPosition': isie6 ? 'absolute' : 'fixed'});
 	$loadRight.anystretch("images/loading_right.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
-	$("#FlashContent").anystretch("images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 
 	if ( isie6 ){
 		$('.page-wrapper').css({'opacity':1 , 'overflow': 'hidden'});
@@ -453,21 +451,11 @@ $(function() {
 			}
 		});
 
-	// init flash player
-	// resize flash
-    $win.scroll(function(){
-        if( isInitFlash ) return;
-        var scTop = $win.scrollTop();
-        if( height - scTop < 0  && 1.5 * height - scTop > 0 ){
-            if( $.browser.webkit ){
-                initFlash( width-40 , (width-40)*0.42 );
-            } else {
-                initFlash( '100%' , '100%' );
-            }
-            isInitFlash = true;
-        }
-    });
-
+	if( $.browser.webkit ){
+        initFlash( width-40 , (width-40)*0.42 );
+    } else {
+        initFlash( '100%' , '100%' );
+    }
 	var videoMarginTop = height - $('#section_video').height();
 	videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
 	$('#section_video').css('margin-top' , videoMarginTop /2 );
@@ -572,25 +560,10 @@ function windowResize(){
 	   $("#slider2").css({'left':sliderWidthOffset2,'width':sliderImgWidth});
 	   $slideImgs.css({'left':0});
 
-	   // resize flash
-	   /*
-       var scTop = $(window).scrollTop();
-       if( winH - scTop < 0  &&
-           1.5 * winH - scTop > 0 &&
-           $.browser.webkit ){
-           if( !isInitFlash ){
-               initFlash( width , 400 );
-           } else {
-               var fscWidth = $('#FlashContent').width();
-               $('#FlashContent').css('margin-left' , ( winW - fscWidth ) / 2 );
-           }
-       }
-       */
+
        $('#FlashContent').css('overflow' , 'hidden');
        var fscWidth = $('#FlashContent').width();
-       if( !isInitFlash ){
-           $('#FlashContent img').css('margin-left' , - ( 1648 - fscWidth ) / 2)
-       }
+
 	}
 
 

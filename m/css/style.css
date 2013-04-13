@@ -42,7 +42,7 @@ tr.odd {background-color: #dddddd;}
 
 .session1 h1{ font-size:38px;margin-bottom:10px; color:#333;}
 .session1 p{ font-size:16px; color:#555; line-height:1.5em;}
-.session1 .session1_text{padding:50px 30px;}
+.session1 .session1_text{padding:50px 5%;}
 .session2{ }
 .session2 .video{ width:420px; margin:63px auto 0 auto; border:13px solid #313131;}
 
@@ -87,7 +87,7 @@ margin-top: 100px;}
 .share_li1 a.a9:hover{ background:url(../images/a9.png) #fff;}
 */
 
-.share_li1 , .share_li2 {box-shadow: 0 -2px 4px #999; display:none;border-top:1px solid #626262;z-index:10000;padding-bottom:110px;position:absolute; bottom : 0; width:100%; background: rgba(0 , 0 , 0 , 0.4);}
+.share_li1 , .share_li2 {z-index:9999999999;box-shadow: 0 -2px 4px #999; display:none;border-top:1px solid #626262;padding-bottom:110px;position:absolute; bottom : 0; width:100%; background: rgba(0 , 0 , 0 , 0.4);}
 .share_wrap{overflow:hidden;padding:50px 15px 0 15px; background: rgba(0 , 0 , 0 , 0.6);}
 .share_wrap span{color:white;font-size:18px;line-height: 28px;}
 .share_li {float:left; margin: 30px;text-align: center;color:white; margin}

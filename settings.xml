@@ -2,7 +2,7 @@
 
 <!-- width and height attributes will be taken in consideration
 as dimensions of the player only if the init function's params are undefined -->
-<settings width = "" height = "">
+<settings width="" height="">
 
 	<!-- previewPath and videoPath will be taken in consideration only if the
 	init function's params are undefined -->
@@ -12,7 +12,7 @@ as dimensions of the player only if the init function's params are undefined -->
 	<!-- playing settings -->
 	<initialVolume>50</initialVolume>
 	<bufferTime>5</bufferTime> <!-- in seconds -->
-	<autoStart>true</autoStart><!-- if the player autostarts the first time -->
+	<autoStart>false</autoStart><!-- if the player autostarts the first time -->
 	<loopVideo>true</loopVideo> <!-- if the video should restart when it ends -->
 
 
@@ -35,15 +35,15 @@ as dimensions of the player only if the init function's params are undefined -->
 	<playBackBarColor>0x666666</playBackBarColor>
 	<playDownloadBarColor>0x333333</playDownloadBarColor>
 	<playProgressBarColor>0xFFFFFF</playProgressBarColor>
-	<playScrubColors normalColor = "0xFFFFFF" overColor = "0xFFFFFF" />
+	<playScrubColors normalColor="0xFFFFFF" overColor="0xFFFFFF" />
 
 	<!-- timer settings -->
-	<timer backColor = "" passedTimeColor = "0xFFFFFF" totalTimeColor = "0xFFFFFF" separatorColor = "0xFFFFFF" />
+	<timer backColor="" passedTimeColor="0xFFFFFF" totalTimeColor="0xFFFFFF" separatorColor="0xFFFFFF" />
 
 	<!-- volume control settings -->
-	<verticalVolume backColor = "0xAAAAAA">true</verticalVolume>
+	<verticalVolume backColor="0xAAAAAA">true</verticalVolume>
 	<volumeBackBarColor>0xAAAAAA</volumeBackBarColor>
 	<volumeLevelBarColor>0xFFFFFF</volumeLevelBarColor>
-	<volumeScrubColors normalColor = "0xFFFFFF" overColor = "0xFFFFFF" />
+	<volumeScrubColors normalColor="0xFFFFFF" overColor="0xFFFFFF" />
 
-</settings>>
+</settings>
