@@ -147,7 +147,6 @@ $(function() {
 			}
 		},
 		afterShow:function(){
-			$('#intro_text_wrap').jScrollPane({autoReinitialise:true});
 		}
 
 	});
