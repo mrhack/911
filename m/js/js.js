@@ -124,7 +124,6 @@ $(function() {
 		$('#session4_2').delay(300).fadeIn(300);
 	});
 
-
 	$('#agree_doc').fancybox({
 		type : 'ajax',
 		'openEffect'	: 'fade',
@@ -154,6 +153,25 @@ $(function() {
 	});
 
 
+	var isEn = $('body').hasClass('en');
+	var _str_user_name="请输入姓名";
+	var _str_chexing="请选择您感兴趣的车型";
+	var _str_baoshijiezhongxin="请选择您感兴趣的保时捷中心";
+	var _str_phone='请输入手机号码';
+	var _str_number= '请输入正确的11位手机号码';
+	var _str_rangelength= '请输入正确的11位手机号码';
+	var _str_email="请输入邮箱";
+	var _str_agree="请阅读保密政策";
+	if(isEn){
+		var _str_user_name =" Please enter your name ";
+		var _str_chexing = "Please select the model you are interested in";
+		var _str_baoshijiezhongxin = "Please select you are interested in Porsche Center";
+		var _str_phone = "Please enter your mobile number";
+		var _str_number = "Please enter a correct phone number 11";
+		var _str_rangelength = "Please enter a correct phone number 11";
+		var _str_email = "Please enter the mailbox";
+		var _str_agree = "Please read the Privacy Policy";
+	}
 	$("#signupForm").validate({
 		rules: {
 			user_name: "required",
@@ -167,12 +185,12 @@ $(function() {
 			agree: "required"
 		},
 		messages: {
-			user_name: "请输入姓名",
-			chexing: "请选择您感兴趣的车型",
-			baoshijiezhongxin: "请选择您感兴趣的保时捷中心",
-			phone:{required:'请输入手机号码',number: '请输入正确的11位手机号码',rangelength: '请输入正确的11位手机号码'},
-			email: "请输入邮箱",
-			agree: "请阅读保密政策"
+			user_name: _str_user_name,
+			chexing: _str_chexing,
+			baoshijiezhongxin: _str_baoshijiezhongxin,
+			phone:{required:_str_phone ,number: _str_number ,rangelength: _str_rangelength},
+			email: _str_email,
+			agree: _str_agree
 		},
 		submitHandler: function (form) {
 

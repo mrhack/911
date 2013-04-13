@@ -193,9 +193,9 @@
         }).appendTo(qLoverlay);
         if (qLoptions.percentage == true) {
             qLpercentage = $("<div id='qLpercentage'></div>").text("0%").css({
-
                 position: "absolute",
                 left: "50%",
+                bottom : 0,
                 color: qLoptions.barColor
             }).appendTo(qLoverlay);
         }

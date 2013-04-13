@@ -67,12 +67,12 @@ tr.odd {background-color: #dddddd;}
 .baoming1{ width:122px; height:37px; background:url(../images/baoming_botton.jpg); display:block; position:absolute; top:280px; left:0; text-indent:-10000px; overflow:hidden;}
 .baoming1:hover {opacity:0.7;}
 
-.page2 .content_wrap{ height:694px;}
-.page3 .content_wrap{ height:694px;}
-.page4 .content_wrap{ height:694px;}
+.page2 .content_wrap{ height:694px; }
+.page3 .content_wrap{ height:694px; }
+.page4 .content_wrap{ height:694px; }
 
 .form2{  font-family:arial,'simhei'; z-index:11;}
-.form2 label.error{ display:none;color:#CCCCCC;font-size:12px;font-weight:normal;margin:0 0 0 5px;}
+.form2 label.error{ display:none;color:#A5A5A5;font-size:12px;font-weight:normal;margin:0 0 0 5px;}
 .form2 h2{ font-size:40px; font-family: 黑体; color:#6d6d6d; width:300px; text-align:center; padding-bottom:38px;}
 .form2 label{ padding-left:10px;font-family: 黑体; font-size:18px; color:#a5a5a5; display:block; line-height:25px; height:25px; padding-top:10px;}
 .form2 input{ border:1px solid #cbcbcb;padding:5px 10px; margin:0; background:white;color:#444; width:280px; font-size:13px;font-family:arial,'simhei';}
@@ -80,7 +80,7 @@ tr.odd {background-color: #dddddd;}
 .form2 select option {background:#bbb;padding:2px 10px;}
 .agree{ padding:35px 0 35px 70px; height:18px; line-height:18px;width:200px;}
 .agree input{ float:left; width:15px; height:15px;margin:0 4px 0 0;padding: 0;}
-.agree a{ color:#818181;}
+.agree a{ color:#818181;text-decoration: underline;}
 .forrm_submit{width:190px; height:67px; background:url(../images/baoming_botton3.png) no-repeat; position:absolute; margin-left:43px;}
 .forrm_submit input{width:185px; height:61px; border:none;text-indent:-10000px; overflow:hidden; background:none;cursor:pointer;}
 .forrm_submit:hover {opacity:0.7;}
