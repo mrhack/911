@@ -474,11 +474,12 @@ function initFlash( stageW , stageH ){
 
 	// PARAMS
 	var params = {};
+	params.bgcolor = "#ffffff";
 	params.allowfullscreen = "true";
 	params.allowScriptAccess = "always";
 	params.scale = "noscale";
-  	params.wmode = "opaque";
-	//params.wmode = "transparent";
+  	//params.wmode = "opaque";
+	params.wmode = "transparent";
 
 	// ATTRIBUTES
 	var attributes = {};
@@ -494,7 +495,7 @@ function initFlash( stageW , stageH ){
 	flashvars.componentH = stageH;	// if controller under is set to true then you must change this variable(substract the controller height)
 
 	// if you don't define these then the one defined in the XML file will be taken in consideration
-	flashvars.previewFilePath = "preview.jpg";
+	flashvars.previewFilePath = "images/video.jpg";
 	flashvars.videoFilePath = "video.flv";
 
 	// player settings(if not defined then the player will have the default settings defined in AS)

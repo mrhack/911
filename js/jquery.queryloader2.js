@@ -22,7 +22,7 @@
 	jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
 	jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
 	jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
-	
+
 
 
     if (!Array.prototype.indexOf)
@@ -36,7 +36,7 @@
                       : Math.floor(from);
              if (from < 0)
                  from += len;
- 
+
                  for (; from < len; from++)
                      {
                      if (from in this &&
@@ -85,7 +85,7 @@
                         top: "0%",
                         width: "100%",
                         height: "100%"
-						
+
                     }, 500, function () {
                         $('#'+qLoptions.overlayId).fadeOut(500, function () {
                             $(this).remove();
@@ -118,7 +118,7 @@
             height: 0,
             overflow: "hidden"
         });
-        
+
         for (var i = 0; qLimages.length > i; i++) {
             $.ajax({
                 url: qLimages[i],
@@ -130,7 +130,7 @@
                     }
                 }
             });
-        }        	
+        }
 
     };
 
@@ -154,7 +154,7 @@
             bottom: percentage + "%"
         }, 200);
 		$(qLbar).css({'overflow':'visible'});
-		
+
         if (qLoptions.percentage == true) {
             $(qLpercentage).text(Math.ceil(percentage) + "%");
         }
@@ -193,7 +193,7 @@
         }).appendTo(qLoverlay);
         if (qLoptions.percentage == true) {
             qLpercentage = $("<div id='qLpercentage'></div>").text("0%").css({
-                
+
                 position: "absolute",
                 left: "50%",
                 color: qLoptions.barColor
@@ -205,6 +205,7 @@
     };
 
     var findImageInElement = function (element) {
+        if( $(element).closest('.noload').length ) return;
         var url = "";
 
         if ($(element).css("background-image") != "none") {
