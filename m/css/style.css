@@ -12,6 +12,14 @@ h2 {font-size: 1.143em;}
 p, dl, dt, dd, ul, li, div, h1, h2, h3, h4, h5, h6 {margin: 0; padding:0; list-style:none;}
 del {text-decoration: line-through;}
 tr.odd {background-color: #dddddd;}
+.ellipsis {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  _width: 100%;
+  word-wrap: normal;
+}
 .clearfix{overflow:hidden;_zoom:1;}
 .clear{float:none; clear:both;font-size:0px;line-height:0px;height:0px; min-height:0px; padding:0px; margin:0px; overflow:hidden;}
 .line{float:none; clear:both;font-size:0px;line-height:1px;height:1px; min-height:0px; padding:0px; margin:24px 0 0 0; overflow:hidden; background:#000;}
@@ -32,10 +40,9 @@ tr.odd {background-color: #dddddd;}
 .slider_item .slider_desc{padding:35px 20px;font-size: 14px;color: white; font-family: microsoft yahei;}
 .slider_desc h4{font-size:18px;}
 
-.session1{ width:100%; height:590px; background:url(../images/car1.png) no-repeat; background-size:100%;position:relative;}
-.session1 h1{ position:absolute; top:334px; left:33px; font-size:38px; color:#333;}
-.session1 p{ font-size:16px; color:#555; position:absolute; top:387px; left:33px; line-height:150%;z-index:999;}
-
+.session1 h1{ font-size:38px;margin-bottom:10px; color:#333;}
+.session1 p{ font-size:16px; color:#555; line-height:1.5em;}
+.session1 .session1_text{padding:50px 30px;}
 .session2{ }
 .session2 .video{ width:420px; margin:63px auto 0 auto; border:13px solid #313131;}
 

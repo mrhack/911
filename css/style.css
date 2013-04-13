@@ -25,7 +25,7 @@ tr.odd {background-color: #dddddd;}
 
 
 .menu_wrap{ width:100%; height:100px; position:fixed; z-index:111;}
-.menu_inner{background:url('../images/topbg.png') repeat-x 0 bottom;width:100%; height:89px; position:absolute; top:-89px; z-index:111;}
+.menu_inner{background:url('../images/topbg.png') repeat-x 0 bottom;width:100%; height:89px; position:absolute; z-index:111;}
 .logo{ position:absolute; width:93px; height:52px; left:71px; top:24px; background:url(../images/logo.png);}
 .menu{ float:right;}
 .menu li{ float:left;}

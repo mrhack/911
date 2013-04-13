@@ -135,9 +135,9 @@ $(function() {
 
 			if( height * 3 - scrollTop  < 300){
 				if(!formOpened){
-					$s4.find('.text2_1').animate({'left':310},2000,'easeInOutBack');
-					$s4.find('.text2').delay(200).animate({'left':181},2000,'easeInOutBack');
-					$s4.find('.baoming2').delay(400).animate({'left':384},2000,'easeInOutBack');
+					$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
+					$s4.find('.text2').delay(200).css({'left':181}).hide().fadeIn(2000);
+					$s4.find('.baoming2').delay(400).css({'left':384}).hide().fadeIn(2000);
 					formOpened = 1;
 				}
 			}
@@ -161,20 +161,22 @@ $(function() {
 
 	$('.baoming2 a').click(function(e){
 		e.preventDefault();
-        var time = 2000;
+        var time = 1000;
         $s4.find('.form2').show();
-		$s4.find('.text2_1').animate({'left':-2000},time,'easeInOutBack');
-		$s4.find('.text2').delay(200).animate({'left':-2000},time,'easeInOutBack');
-		$s4.find('.baoming2').delay(300).animate({'left':-2000},time,'easeInOutBack');
+		$s4.find('.text2_1').fadeOut(time);
+		$s4.find('.text2').delay(200).fadeOut(time);
+		$s4.find('.baoming2').delay(300).fadeOut(time);
 
-		$s4.find('h2').delay(400).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field1').delay(500).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field2').delay(600).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field3').delay(700).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field4').delay(800).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field5').delay(900).animate({'left':330},time,'easeInOutBack');
-		$s4.find('.form_field6').delay(1000).animate({'left':339},time,'easeInOutBack');
-		$s4.find('.form_field7').delay(1100).animate({'left':330},time,'easeInOutBack');
+		setTimeout(function(){
+			$s4.find('h2').delay(400).fadeIn(time).css({'left':330});
+			$s4.find('.form_field1').delay(500).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field2').delay(600).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field3').delay(700).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field4').delay(800).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field5').delay(900).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field6').delay(1000).hide().fadeIn(time).css({'left':330});
+			$s4.find('.form_field7').delay(1100).hide().fadeIn(time).css({'left':330});
+		} , 500);
 	});
 
 	$("select").uniform();
@@ -469,6 +471,12 @@ $(function() {
 	var videoMarginTop = height - $('#section_video').height();
 	videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
 	$('#section_video').css('margin-top' , videoMarginTop /2 );
+
+	// 10秒后收起top_down
+	setTimeout( function(){
+		$('.menu_wrap').trigger('mouseout');
+	} , 10000 );
+	topBarBreathe();
 });
 
 
@@ -565,6 +573,7 @@ function windowResize(){
 	   $slideImgs.css({'left':0});
 
 	   // resize flash
+	   /*
        var scTop = $(window).scrollTop();
        if( winH - scTop < 0  &&
            1.5 * winH - scTop > 0 &&
@@ -576,6 +585,7 @@ function windowResize(){
                $('#FlashContent').css('margin-left' , ( winW - fscWidth ) / 2 );
            }
        }
+       */
        $('#FlashContent').css('overflow' , 'hidden');
        var fscWidth = $('#FlashContent').width();
        if( !isInitFlash ){
@@ -618,4 +628,12 @@ function sharethis(e, t, n, r, i, s, o, u) {
 }
 function checkShareConfig(e) {
     return e
+}
+function topBarBreathe(){
+	var $topDown = $('.top_down');
+	setInterval(function(){
+		$topDown.animate({'opacity':0.4} , 700 , function(){
+			$topDown.animate({'opacity':1} , 500 );
+		});
+	}, 2000 );
 }
