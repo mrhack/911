@@ -1,5 +1,5 @@
 //DD_belatedPNG.fix('div, ul, img, li, input , a');
-var siteurl = "/911/";
+var siteurl = "/";
 var formOpened = 0;
 var whereIam = null;
 var isInitFlash = false;
@@ -17,6 +17,8 @@ var _str_email="请输入邮箱";
 var _str_agree="请阅读保密政策";
 var _str_shared = "分享成功";
 $(function() {
+	
+	
 	isEn = ($('body').hasClass('en'));
 	if(isEn)
 	{
