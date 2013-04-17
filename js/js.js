@@ -56,7 +56,7 @@ $(function() {
 	var $slider2 = $('#slider2_t');
 	var $slider3 = $('#slider3_t');
 
-		if($('html').hasClass('touch')){
+	if( $('html').hasClass('touch') && !isiPad ){
 		window.location.href="m";
 	}
 	$('.page-wrapper').css({'display':'block','opacity':0});
@@ -69,7 +69,7 @@ $(function() {
 	if( isiPad ){
 		$s1.add($s2)
 			.add($s3)
-			.add($s4).css('position' , 'relative');
+			.add($s4).css('position' , 'static');
 		$('.blank_section').hide();
 	} else {
 		$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
@@ -155,9 +155,11 @@ $(function() {
 	$win.bind('scroll', changeBookmarkOnScroll)
 		.resize(windowResize)
 		.scroll(function(){
+
 	   		var scrollTop = $win.scrollTop();
 
 			var height = $win.height() ;
+			var bHeight = $(document.body).height() ;
 
 			$s2.css({'top': height - scrollTop });
 			$s3.css({'top': height * 2 - scrollTop });
@@ -180,7 +182,9 @@ $(function() {
 //				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
 //			}
 
-			if( height * 3 - scrollTop  < 300){
+			if( height * 3 - scrollTop  < 300
+				|| ( isiPad && bHeight - scrollTop < bHeight / 4 )
+				){
 				if(!formOpened){
 					if(!isie8)
 					{
@@ -664,12 +668,14 @@ function windowResize(){
 
 		var containerWidth = winW;
 		var containerHeight = winH;
-		$('.section,.section_bg').height(containerHeight);
+		$('.section,.section_bg').height( containerHeight * ( isiPad ? 0.6 : 1 ) );
+		if( isiPad ){
+			$('.section').css('padding' , '40px 0');
+		}
 		$('#section_video').height(containerWidth *0.42);
 		$('.section').width(containerWidth);
 		$('#section_home').height(containerHeight-containerHeight*0.3)
 			.css({'margin-top':containerHeight*0.15});
-
 	   if( isie6 ){
 	   	   $('.blank_section').hide();
 	   } else {
