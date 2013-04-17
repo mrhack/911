@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'PorscheNewsGothic-Bold';
+	src: url('lt21023.eot');
+	src: url('lt21023.eot?#iefix') format('embedded-opentype'),
+			 url('lt21023.woff') format('woff'),
+			 url('lt21023.ttf') format('truetype'),
+			 url('lt21023.svg#PorscheNewsGothic-Bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* ---------- Overall Specifications ---------- */
 html, body{height: 100%;background:#f9f9f9; font-size:13px; font-family:Arial, Helvetica, sans-serif;}
@@ -24,7 +34,7 @@ tr.odd {background-color: #dddddd;}
 .clear{float:none; clear:both;font-size:0px;line-height:0px;height:0px; min-height:0px; padding:0px; margin:0px; overflow:hidden;}
 .line{float:none; clear:both;font-size:0px;line-height:1px;height:1px; min-height:0px; padding:0px; margin:24px 0 0 0; overflow:hidden; background:#000;}
 
-.page-wrapper{width:100%; margin:0 auto;background:#fdfdfd;font-family:arial, 'simhei',"黑体";}
+.page-wrapper{width:100%; margin:0 auto;background:#fdfdfd;font-family:Arial, 'simhei',"黑体";}
 .top{ width:100%; height:92px; background:url(../images/logo.png) #FFF center center no-repeat;}
 
 
@@ -37,21 +47,24 @@ tr.odd {background-color: #dddddd;}
 .slider_items{position: relative;margin-top:68px;}
 .slider_item {float:left;}
 .slider_item img{width:100% ; box-shadow:0 0px 6px 4px #636363;}
-.slider_item .slider_desc{padding:35px 20px;font-size: 14px;color: white; font-family: microsoft yahei;}
-.slider_desc h4{font-size:18px;}
+.slider_item .slider_desc{padding:35px 20px;font-size: 16px;-webkit-text-size-adjust: none;color: white; font-family:Arial, 'simhei',"黑体";line-height:130%;}
+.slider_desc h4{font-size:16px;font-weight:bold;}
 
 .session1 h1{ font-size:38px;margin-bottom:10px; color:#333;}
-.session1 p{ font-size:16px; color:#555; line-height:1.5em;}
+.session1 p{ font-size:16px; color:#555; line-height:1.5em;-webkit-text-size-adjust: none;}
 .session1 .session1_text{padding:50px 5%;}
 .session2{ }
 .session2 .video{ width:420px; margin:63px auto 0 auto; border:13px solid #313131;}
+.en .session1 h1 {font-family:'PorscheNewsGothic-Bold';font-size:26px;}
+.en .session1 p {font-size:16px;-webkit-text-size-adjust: none;}
 
 .session3{ width:100%; position:relative;}
 
 .session4{ width:100%; position:relative;}
 #session4_1 h1{ font-size:40px; overflow:hidden;text-align: center;
 margin-top: 100px;}
-#session4_1 p{ font-size:16px; color:#323232; width:auto;margin: 10px 10% 30px; line-height:150%;}
+#session4_1 p{ font-size:16px;-webkit-text-size-adjust: none; color:#323232; width:auto;margin: 10px 10% 30px; line-height:150%;}
+.en #session4_1 h1 {font-family:'PorscheNewsGothic-Bold';}
 
 .baoming {margin:0 auto;}
 #session4_2 {display:none;margin:20px auto 0;}
@@ -94,6 +107,7 @@ font-size: 20px;
 .form2{ width:80%; font-family:Arial,'simhei'; z-index:11;}
 .form2 label.error{ display:none;color:#666;font-size:16px;}
 .form2 h2{ font-size:40px; color:#6d6d6d;  line-height:30px; text-align:center; padding:10px 0 28px 0;}
+.en .form2 h2 {font-family:'PorscheNewsGothic-Bold';}
 .form2 label{ padding-left:5px;font-size:20px; color:#a5a5a5; display:block;margin:0 0 4px 0;padding-top:10px;}
 .form2 input{ border:none;font-size:18px; padding:10px 0px; margin:0; background:white; border:1px solid #c8c8c8; width:100%;}
 .form2 select{ border:none;font-size:18px; padding:4px; margin:0; background:#d3d3d3; width:300px;}
@@ -107,6 +121,7 @@ font-size: 20px;
 #accordion h3{ padding:none;background:url(../images/slider.png) repeat-x;height:84px;overflow:hidden;line-height:84px;color:#7f7f7f;padding:0 0 0 33px;font-size:23px;}
 #accordion h3:hover{color:#333;}
 #accordion h3 .tab {display:block;background:url(../images/down_dot2.png) no-repeat right;}
+.en #accordion h3 .tab {font-family:'PorscheNewsGothic-Bold';}
 .ui-accordion-header-active .tab {background:url(../images/down_dot.png) no-repeat right;}
 .ui-loader {display:none;}
 
@@ -128,7 +143,7 @@ box-shadow: 0 0 5px #000;background:#000;}
 .fancybox-next {background:url(../images/nav_right.png) no-repeat right center;opacity:0.5;}
 .fancybox-next:hover {opacity:1;}
 
-#intro {padding:25px;color:#ccc;line-height:150%;font-size:12px;}
+#intro {padding:25px;color:#4D4D4D;line-height:150%;font-size:12px;}
 #intro h3 {font-size:14px;}
 #intro_title {font-size:20px;border-bottom:1px solid #444;padding:0 0 10px 0;margin:0 0 10px 0;}
 
@@ -147,8 +162,37 @@ z-index: 1;}
 .video_wrap{position:absolute;top:16px;left:19px;right:20px;bottom:29px;background: black;}
 .video1 .video{position:absolute;}
 
-.bigbtn{font-family:黑体;background:url(../images/btn.png) no-repeat; width:190px; height:67px;}
+.bigbtn{font-family:Arial,'黑体';background:url(../images/btn.png) no-repeat; width:190px; height:67px;}
 .bigbtn a,.bigbtn input{padding: 0;
-border: none;background:none;text-indent:0;text-align: center; width:100%; height:100%;display:block;text-decoration: none; font-size: 22px; color:#626262; line-height: 65px;}
+border: none;background:none;text-indent:0;text-align: center; width:100%; height:60px;display:block;text-decoration: none; font-size: 22px; color:#626262; line-height: 65px;}
+.en .bigbtn a {font-family:'PorscheNewsGothic-Bold';}
+.en .bigbtn input {font-family:'PorscheNewsGothic-Bold';}
+.fancybox-nav {
+	width: 150px;
+	height: 100%;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+div.fancybox-skin{
+    background:#f0f0f0;
+	border-radius:0;
+}
+div.fancybox-title{
+    position: absolute;
+    bottom: 0;
+    background: url('../images/opacity.png');
+    right : 0;
+    left: 0;
+}
+div.fancybox-title h4{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
 /* for english */
-.lang{position:absolute; top: 10px; right:10px;}
+.lang{position:absolute; bottom: 60px; right:20px;font-size:16px;z-index:999;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.top {background:url(../images/logo_big.png) no-repeat center center;background-size:93px 51px;}
+} 

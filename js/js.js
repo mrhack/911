@@ -1,8 +1,34 @@
 //DD_belatedPNG.fix('div, ul, img, li, input , a');
+var siteurl = "/";
 var formOpened = 0;
 var whereIam = null;
+var isInitFlash = false;
 var isie6 = $.browser.msie && $.browser.version == 6;
+var isie8 = $.browser.msie && $.browser.version <= 8;
+var isEn;
+var _str_user_name="请输入姓名";
+var _str_chexing="请选择您感兴趣的车型";
+var _str_baoshijiezhongxin="请选择您感兴趣的保时捷中心";
+var _str_phone='请输入手机号码';
+var _str_number= '请输入正确的11位手机号码';
+var _str_rangelength= '请输入正确的11位手机号码';
+var _str_email="请输入邮箱";
+var _str_agree="请阅读保密政策";
+var _str_shared = "分享成功";
 $(function() {
+	isEn = ($('body').hasClass('en'));
+	if(isEn)
+	{
+		 _str_user_name =" Please enter your name ";
+		 _str_chexing = "Please choose the model you are interested in";
+		 _str_baoshijiezhongxin = "Please choose the Porsche dealer centre you are interested in ";
+		 _str_phone = "Please enter your mobile number";
+		 _str_number = "Please enter a correct phone number 11";
+		 _str_rangelength = "Please enter a correct phone number 11";
+		 _str_email = "Please enter the mailbox";
+		 _str_agree = "Please read the Privacy Policy";
+		_str_shared = "Shared successful";
+	}
 
 	var $loadLeft = $('.loading_left');
 	var $loadRight = $('.loading_right');
@@ -17,7 +43,7 @@ $(function() {
 	var $t4 	= $('#text1_4');
 	var $t5 	= $('#text1_5');
 
-	var $bm     = $('#baoming1').hover(function(){$bm.css('opacity',1);},function(){$bm.css('opacity',0.7);});
+	var $bm     = $('#baoming1').hover(function(){$bm.css('opacity',0.7);},function(){$bm.css('opacity',1);});
 
 	var $s1 	= $('#section1').css({'top':0});
 	var $s2 	= $('#section2').css({'top':height});
@@ -33,11 +59,12 @@ $(function() {
 		window.location.href="m";
 	}
 	$('.page-wrapper').css({'display':'block','opacity':0});
+	$('.menu_inner').css({top:-103});
+	$('#section_home').anystretch(siteurl+"images/car1.jpg");
+	$loadLeft.anystretch(siteurl+"images/loading_left.jpg",{'positionX':'right','elPosition': isie6 ? 'absolute' : 'fixed'});
+	$loadRight.anystretch(siteurl+"images/loading_right.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
+	$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 
-
-	$('#section_home').anystretch("images/car1.jpg");
-	$loadLeft.anystretch("images/loading_left.jpg",{'positionX':'right','elPosition': isie6 ? 'absolute' : 'fixed'});
-	$loadRight.anystretch("images/loading_right.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 
 	if ( isie6 ){
 		$('.page-wrapper').css({'opacity':1 , 'overflow': 'hidden'});
@@ -61,8 +88,9 @@ $(function() {
 			.add($t4)
 			.add($t5)
 			.add($bm)
-			.css('left' , '10px');
+			.css('opacity' , '1').show();
 		} , 1000);
+
 
 		$s4.css('position' , 'relative');
 		// fix ie6
@@ -72,26 +100,38 @@ $(function() {
 		});
 		// hide scroll
 		$('.control_button_wrap').hide();
-
-		$('.menu_inner').css('top' , 0);
 	}
 
 	if ( !isie6 ){
 
 		function loadComplete(){
+			_gaq.push(['_trackEvent', 'Home', 'Opened', 'Desk']);
 			$('#qLoverlay').fadeOut(function(){
 				$(this).remove();
 			});
 			$('.page-wrapper').css({'opacity':1});
 
-			$loadLeft.animate({'left':'-50%'},1000,'easeInCubic');
-			$loadRight.animate({'right':'-50%'},1000,'easeInCubic');
-			$t1.delay(200).animate({'left':'10'},1000,'easeInOutBack');
-			$t2.delay(300).animate({'left':'10'},1000,'easeInOutBack');
-			$t3.delay(400).animate({'left':'10'},1000,'easeInOutBack');
-			$t4.delay(500).animate({'left':'10'},1000,'easeInOutBack');
-			$t5.delay(600).animate({'left':'10'},1000,'easeInOutBack');
-			$bm.delay(700).animate({'left':'10'},1000,'easeInOutBack');
+			$('.menu_inner').delay(500).animate({top:-8},700, 'easeInOutBack');
+			$loadLeft.animate({'left':'-51%'},1000,'easeInCubic');
+			$loadRight.animate({'right':'-51%'},1000,'easeInCubic');
+			if(!isie8)
+			{
+				$t1.delay(1500).animate({'opacity':'1'},1000);
+				$t2.delay(1600).animate({'opacity':'1'},1000);
+				$t3.delay(1700).animate({'opacity':'1'},1000);
+				$t4.delay(1800).animate({'opacity':'1'},1000);
+				$t5.delay(1900).animate({'opacity':'1'},1000);
+				$bm.delay(2000).animate({'opacity':'1'},1000);
+			}
+			else
+			{
+				$t1.css({'opacity':'1'});
+				$t2.css({'opacity':'1'});
+				$t3.css({'opacity':'1'});
+				$t4.css({'opacity':'1'});
+				$t5.css({'opacity':'1'});
+				$bm.css({'opacity':'1'});
+			}
 		}
 		$("body").queryLoader2({
 			barColor: "#fff",
@@ -114,8 +154,9 @@ $(function() {
 			$s2.css({'top': height - scrollTop });
 			$s3.css({'top': height * 2 - scrollTop });
 			$s4.css({'top': height * 3 - scrollTop });
-
-			$s1.css({'top': - scrollTop * 0.1 });
+			if ( !isie6 ){
+				$s1.css({'top': - scrollTop * 0.1 });
+			}
 			if( height - scrollTop < 0 ){
 				$s2.css({'top': ( height - scrollTop ) * 0.1 });
 			}
@@ -126,31 +167,75 @@ $(function() {
 				$slider3.css({'margin-top':(height*2-scrollTop)*0.1});
 			}
 
+			//if( height * 2 - scrollTop < 0 ){
+//				var offset = (height*3-scrollTop)*0.2;
+//				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
+//			}
+
 			if( height * 3 - scrollTop  < 300){
 				if(!formOpened){
-					$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
-					$s4.find('.text2').delay(200).css({'left':181}).hide().fadeIn(2000);
-					$s4.find('.baoming2').delay(400).css({'left':384}).hide().fadeIn(2000);
+					if(!isie8)
+					{
+						if(isEn)
+							$s4.find('.text2_1').css({'left':210}).hide().fadeIn(2000);
+						else
+							$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
+						$s4.find('.text2').delay(200).css({'left':181}).hide().fadeIn(2000);
+						$s4.find('.baoming2').delay(400).css({'left':384}).hide().fadeIn(2000);
+					}
+					else
+					{
+						if(isEn)
+							$s4.find('.text2_1').css({'left':210}).show();
+						else
+							$s4.find('.text2_1').css({'left':310}).show();
+						$s4.find('.text2').delay(200).css({'left':181}).show();
+						$s4.find('.baoming2').delay(400).css({'left':384}).show();
+					}
 					formOpened = 1;
 				}
 			}
 			//scrolling section1
-			$t1.css({'margin-left':- scrollTop*0.5 , opacity : Math.max(0 , 1 - 1.3 * scrollTop / height )});
-			$t2.css({'margin-left':- scrollTop*0.4 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
-			$t3.css({'margin-left':- scrollTop*0.3 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
-			$t4.css({'margin-left':- scrollTop*0.1 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
-			$t5.css({'margin-left':- scrollTop*0.4 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height )});
-			$bm.css({'margin-left':- scrollTop*0.1 , opacity : Math.max(0 ,1 - 1.3 * scrollTop / height - 0.3) });
+			if ( !isie6 ){
+				if(!isie8)
+				{
+					$t1.css({'margin-left':- scrollTop*0.5 , opacity : 1 - 1.3 * scrollTop / height });
+					$t2.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
+					$t3.css({'margin-left':- scrollTop*0.3 , opacity : 1 - 1.3 * scrollTop / height });
+					$t4.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height });
+					$t5.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
+					$bm.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height - 0.3 });
+				}
+				else
+				{
+					$t1.css({'margin-left':- scrollTop*0.5});
+					$t2.css({'margin-left':- scrollTop*0.4});
+					$t3.css({'margin-left':- scrollTop*0.3});
+					$t4.css({'margin-left':- scrollTop*0.1});
+					$t5.css({'margin-left':- scrollTop*0.4});
+					$bm.css({'margin-left':- scrollTop*0.1});
+				}
+			}
 		});
 
 	$s4.find('.text2_1 , .text2 , .baoming2')
 		.add($('.form2 h2,.form2 .form_field'))
 		.css({'position':'absolute','left':2000});
 
-	$t1.add($t2).add($t3)
+	if ( !isie6 ){
+		$t1.add($t2).add($t3)
 		.add($t4).add($t5)
 		.add($bm)
-		.css({'position':'absolute','left':2000});
+		.css({'position':'absolute','opacity':0});
+	}
+
+	$('#return-back').click(function(){
+		$s4.find('.form2').fadeOut(function(){
+			$s4.find('.text2_1')
+				.add($s4.find('.text2'))
+				.add($s4.find('.baoming2')).fadeIn();
+		});
+	});
 
 	$('.baoming2 a').click(function(e){
 		e.preventDefault();
@@ -160,16 +245,17 @@ $(function() {
 		$s4.find('.text2').delay(200).fadeOut(time);
 		$s4.find('.baoming2').delay(300).fadeOut(time);
 
+		_gaq.push(['_trackEvent', 'Registration', 'Registration', 'Desk']);
 		setTimeout(function(){
-			$s4.find('h2').delay(400).fadeIn(time).css({'left':330});
-			$s4.find('.form_field1').delay(500).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field2').delay(600).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field3').delay(700).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field4').delay(800).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field5').delay(900).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field6').delay(1000).hide().fadeIn(time).css({'left':330});
-			$s4.find('.form_field7').delay(1100).hide().fadeIn(time).css({'left':330});
-		} , 500);
+			$s4.find('h2').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field1').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field2').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field3').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field4').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field5').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field6').delay(time).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field7').delay(time).hide().fadeIn(time).css({'left':340});
+		} , 200);
 	});
 
 	$("select").uniform();
@@ -192,7 +278,7 @@ $(function() {
 				.animate({top:"-8px"},700, 'easeInOutBack');
 		},function(){
 			$menuInner.stop(true,false)
-				.animate({top:"-89px"},700, 'easeInOutBack');
+				.animate({top:"-103px"},700, 'easeInOutBack');
 		});
 	}
 
@@ -353,6 +439,16 @@ $(function() {
 		$('#slider3').css('z-index',3);
 	});
 
+	$('#slider1_t').click(function(){
+		$('#slider1 .open_slider').click();
+	});
+	$('#slider2_t').click(function(){
+		$('#slider2 .open_slider').click();
+	});
+	$('#slider3_t').click(function(){
+		$('#slider3 .open_slider').click();
+	});
+
 	$("#accordion_slider a.open_slider").fancybox({
 		padding: 0,
 		openEffect: 'elastic',
@@ -385,7 +481,7 @@ $(function() {
 				user_name: "required",
 				chexing: "required",
 				baoshijiezhongxin: "required",
-				phone: { required: true, number: true, rangelength: [11,11]},
+				phone: { required: true },
 				email: {
 					required: true,
 					email: true
@@ -393,32 +489,33 @@ $(function() {
 				agree: "required"
 			},
 			messages: {
-				user_name: "请输入姓名",
-				chexing: "请选择您感兴趣的车型",
-				baoshijiezhongxin: "请选择您感兴趣的保时捷中心",
-				phone:{required:'请输入手机号码',number: '请输入正确的11位手机号码',rangelength: '请输入正确的11位手机号码'},
-				email: "请输入邮箱",
-				agree: "请阅读保密政策"
+				user_name: _str_user_name,
+				chexing: _str_chexing,
+				baoshijiezhongxin: _str_baoshijiezhongxin,
+				phone: {required:_str_phone},
+				email: _str_email,
+				agree: _str_agree
 			},
 			submitHandler: function (form) {
-
 				$(form).ajaxSubmit(function () {
-					$('.section4 h2').delay(100).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field1').delay(200).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field2').delay(300).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field3').delay(400).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field4').delay(500).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field5').delay(600).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field6').delay(700).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .form_field7').delay(800).animate({'left':-2000},1000,'easeInOutBack');
-					$('.section4 .text2_3').delay(900).animate({'left':380},1000,'easeInOutBack');
+					$('.section4 h2').delay(100).fadeOut();
+					$('.section4 .form_field1').delay(200).fadeOut();
+					$('.section4 .form_field2').delay(300).fadeOut();
+					$('.section4 .form_field3').delay(400).fadeOut();
+					$('.section4 .form_field4').delay(500).fadeOut();
+					$('.section4 .form_field5').delay(600).fadeOut();
+					$('.section4 .form_field6').delay(700).fadeOut();
+					$('.section4 .form_field7').delay(800).fadeOut();
+					$s4.find('.text2_1').delay(1300).fadeIn(1000);
+					$s4.find('.text2').delay(1400).fadeIn(1000);
+					$s4.find('.text2_3').delay(1500).fadeIn(1000);
 					return false;
 				});
 				return false;
-
-
 			}
 		});
+
+
 
 
 
@@ -443,14 +540,51 @@ $(function() {
 				}
 			},
 			afterShow:function(){
+				// share friend
+				$("#share_friend").validate({
+					rules: {
+						email1: "required",
+						email2: "required"
+					},
+					messages: {
+						email1: _str_email,
+						email2: _str_email
+					},
+					submitHandler: function (form) {
+						$('#share_friend').fadeOut(function(){
+							$(this).html('<div class="shared_text">'+_str_shared+'</div>');
+							$(this).fadeIn();
+						});
+						$(form).ajaxSubmit(function () {
+
+							return false;
+						});
+						return false;
+					}
+				});
 			}
 		});
 
+	// init flash player
 	if( $.browser.webkit ){
-        initFlash( width-40 , (width-40)*0.42 );
-    } else {
-        initFlash( '100%' , '100%' );
-    }
+		initFlash( width-40 , (width-40)*0.42 );
+	} else {
+		initFlash( '100%' , '100%' );
+	}
+	// resize flash
+    //$win.scroll(function(){
+//        if( isInitFlash ) return;
+//        var scTop = $win.scrollTop();
+//        if( height - scTop < 0  && 1.5 * height - scTop > 0 ){
+//            if( $.browser.webkit ){
+//                initFlash( width-40 , (width-40)*0.42 );
+//            } else {
+//                initFlash( '100%' , '100%' );
+//            }
+//            isInitFlash = true;
+//        }
+//    });
+
 	var videoMarginTop = height - $('#section_video').height();
 	videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
 	$('#section_video').css('margin-top' , videoMarginTop /2 );
@@ -469,12 +603,11 @@ function initFlash( stageW , stageH ){
 
 	// PARAMS
 	var params = {};
-	params.bgcolor = "#ffffff";
 	params.allowfullscreen = "true";
 	params.allowScriptAccess = "always";
 	params.scale = "noscale";
-  	//params.wmode = "opaque";
-	params.wmode = "transparent";
+  	params.wmode = "opaque";
+	//params.wmode = "transparent";
 
 	// ATTRIBUTES
 	var attributes = {};
@@ -490,15 +623,15 @@ function initFlash( stageW , stageH ){
 	flashvars.componentH = stageH;	// if controller under is set to true then you must change this variable(substract the controller height)
 
 	// if you don't define these then the one defined in the XML file will be taken in consideration
-	flashvars.previewFilePath = "images/video.jpg";
-	flashvars.videoFilePath = "video.flv";
+	flashvars.previewFilePath = siteurl+"video.jpg";
+	flashvars.videoFilePath = siteurl+"video.flv";
 
 	// player settings(if not defined then the player will have the default settings defined in AS)
-	flashvars.settingsXMLFile = "settings.xml";
+	flashvars.settingsXMLFile = siteurl+"settings.xml";
 
 
 	/** EMBED CODE **/
-	swfobject.embedSWF("preview.swf"+cacheBuster, attributes.id, stageW, stageH, "9.0.124", "js/expressInstall.swf", flashvars, params, attributes);
+	swfobject.embedSWF(siteurl+"preview.swf"+cacheBuster, attributes.id, stageW, stageH, "9.0.124", siteurl+"js/expressInstall.swf", flashvars, params, attributes);
 }
 
 function windowResize(){
@@ -550,15 +683,31 @@ function windowResize(){
 	   var formMargin = (containerHeight - formHeight)/2;
 	   formMargin = formMargin < 0 ? 0 : formMargin;
 
+	   $s4Wrap.css({'margin-top':formMargin});
 
 	   var sliderWidthOffset2 = parseInt(($acc.width() - sliderImgWidth)*0.5);
 	   $("#slider2").css({'left':sliderWidthOffset2,'width':sliderImgWidth});
 	   $slideImgs.css({'left':0});
 
-
+	   // resize flash
+	   /*
+       var scTop = $(window).scrollTop();
+       if( winH - scTop < 0  &&
+           1.5 * winH - scTop > 0 &&
+           $.browser.webkit ){
+           if( !isInitFlash ){
+               initFlash( width , 400 );
+           } else {
+               var fscWidth = $('#FlashContent').width();
+               $('#FlashContent').css('margin-left' , ( winW - fscWidth ) / 2 );
+           }
+       }
+       */
        $('#FlashContent').css('overflow' , 'hidden');
        var fscWidth = $('#FlashContent').width();
-
+       if( !isInitFlash ){
+           $('#FlashContent img').css('margin-left' , - ( 1648 - fscWidth ) / 2)
+       }
 	}
 
 
@@ -598,10 +747,16 @@ function checkShareConfig(e) {
     return e
 }
 function topBarBreathe(){
-	var $topDown = $('.top_down');
+	var $topDown = $('.top_down_w').css('opacity',0);
 	setInterval(function(){
-		$topDown.animate({'opacity':0.4} , 700 , function(){
-			$topDown.animate({'opacity':1} , 500 );
+		$topDown.animate({'opacity': 0.6} , 700 , function(){
+			$topDown.animate({'opacity': 0} , 500 );
 		});
-	}, 2000 );
+	}, 5000 );
+}
+
+
+function playvideo(){
+	$.scrollTo( "#nav2", 200 );
+	_gaq.push(['_trackEvent', 'Video', 'Play', 'Desk']);
 }

@@ -49,8 +49,14 @@ $(function() {
 		$(this).hide();
 		$('#video_1').show();
 		$('#video_1')[0].play();
+		_gaq.push(['_trackEvent', 'Video', 'Play', 'Mobile']);
 
 	});
+	
+	$('#accordion_slider').one(function(){
+		_gaq.push(['_trackEvent', 'Gallery', 'Gallery', 'Mobile']);
+	});
+
 
 	// swipe effect
 	!(function(){
@@ -120,6 +126,7 @@ $(function() {
 
   	$('.baoming').click(function(e){
 		e.preventDefault();
+		_gaq.push(['_trackEvent', 'Registration', 'Registration', 'Mobile']);
 		$('#session4_1').fadeOut(300);
 		$('#session4_2').delay(300).fadeIn(300);
 	});
@@ -147,14 +154,12 @@ $(function() {
 			}
 		},
 		afterShow:function(){
+			$('#intro_text_wrap').jScrollPane({autoReinitialise:true});
 		}
 
 	});
 
-	$('.lang').click(function(){
-		window.location.href = $(this).attr('href');
-		return false;
-	});
+
 	var isEn = $('body').hasClass('en');
 	var _str_user_name="请输入姓名";
 	var _str_chexing="请选择您感兴趣的车型";
@@ -166,21 +171,20 @@ $(function() {
 	var _str_agree="请阅读保密政策";
 	if(isEn){
 		var _str_user_name =" Please enter your name ";
-		var _str_chexing = "Please select the model you are interested in";
-		var _str_baoshijiezhongxin = "Please select you are interested in Porsche Center";
+		var _str_chexing = "Please choose the model you are interested in";
+		var _str_baoshijiezhongxin = "Please choose the Porsche dealer centre you are interested in ";
 		var _str_phone = "Please enter your mobile number";
 		var _str_number = "Please enter a correct phone number 11";
 		var _str_rangelength = "Please enter a correct phone number 11";
 		var _str_email = "Please enter the mailbox";
 		var _str_agree = "Please read the Privacy Policy";
 	}
-
 	$("#signupForm").validate({
 		rules: {
 			user_name: "required",
 			chexing: "required",
 			baoshijiezhongxin: "required",
-			phone: { required: true, number: true, rangelength: [11,11]},
+			phone: { required: true },
 			email: {
 				required: true,
 				email: true
@@ -191,7 +195,7 @@ $(function() {
 			user_name: _str_user_name,
 			chexing: _str_chexing,
 			baoshijiezhongxin: _str_baoshijiezhongxin,
-			phone:{required:_str_phone ,number: _str_number ,rangelength: _str_rangelength},
+			phone:{required:_str_phone},
 			email: _str_email,
 			agree: _str_agree
 		},
@@ -225,10 +229,6 @@ function windowResize(){
 	$(".slider_wrap img").css({'left':-imageLeft});
 	$(".slider_wrap").height(sliderImgHeight);
 	$(".slider_wrap").width(sliderWidth);
-	//$("#accordion_slider").height(sliderImgHeight);
-
-
-	//$("#accordion_slider").height(sliderImgHeight);
 
 	var formHeight = $('.section4 .content_wrap').height();
 	var formMargin = (containerHeight - formHeight)/2;

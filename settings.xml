@@ -2,11 +2,11 @@
 
 <!-- width and height attributes will be taken in consideration
 as dimensions of the player only if the init function's params are undefined -->
-<settings width="" height="">
+<settings width = "" height = "">
 
 	<!-- previewPath and videoPath will be taken in consideration only if the
 	init function's params are undefined -->
-	<previewPath>images/video.jpg</previewPath>
+	<previewPath>video.jpg</previewPath>
 	<videoPath></videoPath>
 
 	<!-- playing settings -->
@@ -35,15 +35,15 @@ as dimensions of the player only if the init function's params are undefined -->
 	<playBackBarColor>0x666666</playBackBarColor>
 	<playDownloadBarColor>0x333333</playDownloadBarColor>
 	<playProgressBarColor>0xFFFFFF</playProgressBarColor>
-	<playScrubColors normalColor="0xFFFFFF" overColor="0xFFFFFF" />
+	<playScrubColors normalColor = "0xFFFFFF" overColor = "0xFFFFFF" />
 
 	<!-- timer settings -->
-	<timer backColor="" passedTimeColor="0xFFFFFF" totalTimeColor="0xFFFFFF" separatorColor="0xFFFFFF" />
+	<timer backColor = "" passedTimeColor = "0xFFFFFF" totalTimeColor = "0xFFFFFF" separatorColor = "0xFFFFFF" />
 
 	<!-- volume control settings -->
-	<verticalVolume backColor="0xAAAAAA">true</verticalVolume>
+	<verticalVolume backColor = "0xAAAAAA">true</verticalVolume>
 	<volumeBackBarColor>0xAAAAAA</volumeBackBarColor>
 	<volumeLevelBarColor>0xFFFFFF</volumeLevelBarColor>
-	<volumeScrubColors normalColor="0xFFFFFF" overColor="0xFFFFFF" />
+	<volumeScrubColors normalColor = "0xFFFFFF" overColor = "0xFFFFFF" />
 
-</settings>
+</settings>>
