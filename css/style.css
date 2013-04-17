@@ -156,7 +156,7 @@ tr.odd {background-color: #dddddd;}
 .share_li1 a.a8:hover{ background:url(../images/a8.png) #fff;}
 .share_li1 a.a9{ background:url(../images/a9.png) no-repeat;height:45px;}
 .share_li1 a.a9:hover{ background:url(../images/a9.png) #fff;}
-.share_li1 a span,.share_li2 a span{color:#555;display:block;margin-left:49px;height:35px;background:white;line-height: 35px;}
+.share_li1 a span,.share_li2 a span{color:#555;display:block;margin-left:49px;height:35px;line-height: 35px;}
 
 .share2{ background-position:-45px 0; left:80px;}
 

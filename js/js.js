@@ -1,5 +1,5 @@
 //DD_belatedPNG.fix('div, ul, img, li, input , a');
-var siteurl = "/";
+var siteurl = "/911/";
 var formOpened = 0;
 var whereIam = null;
 var isInitFlash = false;
