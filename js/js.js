@@ -1,5 +1,5 @@
 //DD_belatedPNG.fix('div, ul, img, li, input , a');
-var siteurl = "/";
+var siteurl = "/911/";
 var formOpened = 0;
 var whereIam = null;
 var isInitFlash = false;
@@ -56,7 +56,7 @@ $(function() {
 	var $slider2 = $('#slider2_t');
 	var $slider3 = $('#slider3_t');
 
-	if( $('html').hasClass('touch') && !isiPad ){
+	if($('html').hasClass('touch')&&!isiPad){
 		window.location.href="m";
 	}
 	$('.page-wrapper').css({'display':'block','opacity':0});
@@ -65,13 +65,34 @@ $(function() {
 	$loadLeft.anystretch(siteurl+"images/loading_left.jpg",{'positionX':'right','elPosition': isie6 ? 'absolute' : 'fixed'});
 	$loadRight.anystretch(siteurl+"images/loading_right.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 
+	
 
 	if( isiPad ){
 		$s1.add($s2)
 			.add($s3)
-			.add($s4).css('position' , 'static');
+			.add($s4).css({'position': 'relative',top:0});
+			
+		$($('.form2 h2,.form2 .form_field'))
+		.css({'position':'absolute','left':2000});
 		$('.blank_section').hide();
+		
+		if(!formOpened){
+			if(isEn)
+				$s4.find('.text2_1').css({'left':210}).show();
+			else
+				$s4.find('.text2_1').css({'left':310}).show();
+			$s4.find('.text2').delay(200).css({'left':181}).show();
+			$s4.find('.baoming2').delay(400).css({'left':384}).show();
+			formOpened = 1;
+		}
+		
+		$('.section,.section_bg').css({background:'none'});
+		
+		
 	} else {
+		$s4.find('.text2_1 , .text2 , .baoming2')
+		.add($('.form2 h2,.form2 .form_field'))
+		.css({'position':'absolute','left':2000});
 		$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 	}
 	if ( isie6 ){
@@ -113,7 +134,7 @@ $(function() {
 	if ( !isie6 ){
 
 		function loadComplete(){
-			_gaq.push(['_trackEvent', 'Home', 'Opened', 'Desk']);
+			_gaq.push(['_trackEvent', 'Home', 'Home Opened', 'Desk']);
 			$('#qLoverlay').fadeOut(function(){
 				$(this).remove();
 			});
@@ -151,88 +172,87 @@ $(function() {
 		});
 	}
 
+	
 
 	$win.bind('scroll', changeBookmarkOnScroll)
 		.resize(windowResize)
 		.scroll(function(){
-
-	   		var scrollTop = $win.scrollTop();
-
-			var height = $win.height() ;
-			var bHeight = $(document.body).height() ;
-
-			$s2.css({'top': height - scrollTop });
-			$s3.css({'top': height * 2 - scrollTop });
-			$s4.css({'top': height * 3 - scrollTop });
-			if ( !isie6 ){
-				$s1.css({'top': - scrollTop * 0.1 });
-			}
-			if( height - scrollTop < 0 ){
-				$s2.css({'top': ( height - scrollTop ) * 0.1 });
-			}
-			if( height * 2 - scrollTop +110 < 0 ){
-				$s3.css({'top': ( height - scrollTop ) * 0.1} );
-				$slider1.css({'margin-top':(height*2-scrollTop)*0.1});
-				$slider2.css({'margin-top':(height*2-scrollTop)*0.1});
-				$slider3.css({'margin-top':(height*2-scrollTop)*0.1});
-			}
-
-			//if( height * 2 - scrollTop < 0 ){
-//				var offset = (height*3-scrollTop)*0.2;
-//				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
-//			}
-
-			if( height * 3 - scrollTop  < 300
-				|| ( isiPad && bHeight - scrollTop < bHeight / 4 )
-				){
-				if(!formOpened){
+			
+			if(!isiPad)
+			{
+				var scrollTop = $win.scrollTop();
+	
+				var height = $win.height() ;
+	
+				$s2.css({'top': height - scrollTop });
+				$s3.css({'top': height * 2 - scrollTop });
+				$s4.css({'top': height * 3 - scrollTop });
+				if ( !isie6 ){
+					$s1.css({'top': - scrollTop * 0.1 });
+				}
+				if( height - scrollTop < 0 ){
+					$s2.css({'top': ( height - scrollTop ) * 0.1 });
+				}
+				if( height * 2 - scrollTop +110 < 0 ){
+					$s3.css({'top': ( height - scrollTop ) * 0.1} );
+					$slider1.css({'margin-top':(height*2-scrollTop)*0.1});
+					$slider2.css({'margin-top':(height*2-scrollTop)*0.1});
+					$slider3.css({'margin-top':(height*2-scrollTop)*0.1});
+				}
+	
+				//if( height * 2 - scrollTop < 0 ){
+	//				var offset = (height*3-scrollTop)*0.2;
+	//				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
+	//			}
+	
+				if( height * 3 - scrollTop  < 300){
+					if(!formOpened){
+						if(!isie8)
+						{
+							if(isEn)
+								$s4.find('.text2_1').css({'left':210}).hide().fadeIn(2000);
+							else
+								$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
+							$s4.find('.text2').delay(200).css({'left':181}).hide().fadeIn(2000);
+							$s4.find('.baoming2').delay(400).css({'left':384}).hide().fadeIn(2000);
+						}
+						else
+						{
+							if(isEn)
+								$s4.find('.text2_1').css({'left':210}).show();
+							else
+								$s4.find('.text2_1').css({'left':310}).show();
+							$s4.find('.text2').delay(200).css({'left':181}).show();
+							$s4.find('.baoming2').delay(400).css({'left':384}).show();
+						}
+						formOpened = 1;
+					}
+				}
+				//scrolling section1
+				if ( !isie6 ){
 					if(!isie8)
 					{
-						if(isEn)
-							$s4.find('.text2_1').css({'left':210}).hide().fadeIn(2000);
-						else
-							$s4.find('.text2_1').css({'left':310}).hide().fadeIn(2000);
-						$s4.find('.text2').delay(200).css({'left':181}).hide().fadeIn(2000);
-						$s4.find('.baoming2').delay(400).css({'left':384}).hide().fadeIn(2000);
+						$t1.css({'margin-left':- scrollTop*0.5 , opacity : 1 - 1.3 * scrollTop / height });
+						$t2.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
+						$t3.css({'margin-left':- scrollTop*0.3 , opacity : 1 - 1.3 * scrollTop / height });
+						$t4.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height });
+						$t5.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
+						$bm.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height - 0.3 });
 					}
 					else
 					{
-						if(isEn)
-							$s4.find('.text2_1').css({'left':210}).show();
-						else
-							$s4.find('.text2_1').css({'left':310}).show();
-						$s4.find('.text2').delay(200).css({'left':181}).show();
-						$s4.find('.baoming2').delay(400).css({'left':384}).show();
+						$t1.css({'margin-left':- scrollTop*0.5});
+						$t2.css({'margin-left':- scrollTop*0.4});
+						$t3.css({'margin-left':- scrollTop*0.3});
+						$t4.css({'margin-left':- scrollTop*0.1});
+						$t5.css({'margin-left':- scrollTop*0.4});
+						$bm.css({'margin-left':- scrollTop*0.1});
 					}
-					formOpened = 1;
-				}
-			}
-			//scrolling section1
-			if ( !isie6 ){
-				if(!isie8)
-				{
-					$t1.css({'margin-left':- scrollTop*0.5 , opacity : 1 - 1.3 * scrollTop / height });
-					$t2.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
-					$t3.css({'margin-left':- scrollTop*0.3 , opacity : 1 - 1.3 * scrollTop / height });
-					$t4.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height });
-					$t5.css({'margin-left':- scrollTop*0.4 , opacity : 1 - 1.3 * scrollTop / height });
-					$bm.css({'margin-left':- scrollTop*0.1 , opacity : 1 - 1.3 * scrollTop / height - 0.3 });
-				}
-				else
-				{
-					$t1.css({'margin-left':- scrollTop*0.5});
-					$t2.css({'margin-left':- scrollTop*0.4});
-					$t3.css({'margin-left':- scrollTop*0.3});
-					$t4.css({'margin-left':- scrollTop*0.1});
-					$t5.css({'margin-left':- scrollTop*0.4});
-					$bm.css({'margin-left':- scrollTop*0.1});
 				}
 			}
 		});
 
-	$s4.find('.text2_1 , .text2 , .baoming2')
-		.add($('.form2 h2,.form2 .form_field'))
-		.css({'position':'absolute','left':2000});
+	
 
 	if ( !isie6 ){
 		$t1.add($t2).add($t3)
@@ -257,17 +277,17 @@ $(function() {
 		$s4.find('.text2').delay(200).fadeOut(time);
 		$s4.find('.baoming2').delay(300).fadeOut(time);
 
-		_gaq.push(['_trackEvent', 'Registration', 'Registration', 'Desk']);
+		_gaq.push(['_trackEvent', 'Registration', 'Registration Page Opened', 'Desk']);
 		setTimeout(function(){
-			$s4.find('h2').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field1').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field2').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field3').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field4').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field5').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field6').delay(time).hide().fadeIn(time).css({'left':340});
-			$s4.find('.form_field7').delay(time).hide().fadeIn(time).css({'left':340});
-		} , 200);
+			$s4.find('h2').delay(500).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field1').delay(600).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field2').delay(700).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field3').delay(800).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field4').delay(900).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field5').delay(1000).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field6').delay(1200).hide().fadeIn(time).css({'left':340});
+			$s4.find('.form_field7').delay(1300).hide().fadeIn(time).css({'left':340});
+		} , 500);
 	});
 
 	$("select").uniform();
@@ -295,11 +315,21 @@ $(function() {
 	}
 
 	//navigation
-	$('.menu_wrap a, #bullet a,.baoming1').click(function(e){
-		e.preventDefault();
-		$.scrollTo( $(this).attr('href'), 1500, {easing:'easeOutQuart'} );
-	});
-
+	if(!isiPad)
+	{
+		$('.menu_wrap a, #bullet a,.baoming1').click(function(e){
+			e.preventDefault();
+			$.scrollTo( $(this).attr('href'), 1500, {easing:'easeOutQuart'} );
+		});
+	}
+	else
+	{
+		$('.menu_wrap a').eq(0).attr('href','#section1');
+		$('.menu_wrap a').eq(1).attr('href','#section2');
+		$('.menu_wrap a').eq(2).attr('href','#section3');
+		$('.menu_wrap a').eq(3).attr('href','#section4');
+		$('#bullet').hide();
+	}
 	// Keyshort
 	$('body').keydown(function(event) {
 		if(event.which == 38)
@@ -610,6 +640,7 @@ $(function() {
 
 	var videoMarginTop = height - $('#section_video').height();
 	videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
+	if(isiPad) videoMarginTop = 0;
 	$('#section_video').css('margin-top' , videoMarginTop /2 );
 
 	// 10秒后收起top_down
@@ -668,14 +699,12 @@ function windowResize(){
 
 		var containerWidth = winW;
 		var containerHeight = winH;
-		$('.section,.section_bg').height( containerHeight * ( isiPad ? 0.6 : 1 ) );
-		if( isiPad ){
-			$('.section').css('padding' , '40px 0');
-		}
+		$('.section,.section_bg').height(containerHeight);
 		$('#section_video').height(containerWidth *0.42);
 		$('.section').width(containerWidth);
 		$('#section_home').height(containerHeight-containerHeight*0.3)
 			.css({'margin-top':containerHeight*0.15});
+
 	   if( isie6 ){
 	   	   $('.blank_section').hide();
 	   } else {
@@ -695,15 +724,14 @@ function windowResize(){
 	   		.find('img')
 	   		.width(sliderImgWidth)
 	   		.height(sliderImgHeight)
-	   		.css({'left':-imageLeft});;
-
-	   $acc.css({'margin-top':(containerHeight - containerWidth*0.42)/2
-	   		,width:containerWidth
-	   		,height:containerWidth*0.42
-	   	});
-
-
+	   		.css({'left':-imageLeft});
+	
 	   $acc.height(sliderImgHeight).css({'margin-top':(containerHeight - sliderImgHeight)/2});
+	   if(isiPad)
+	   {
+		   $acc.css({'margin-top':0});
+	   }
+
 
 	   var $s4Wrap = $('.section4 .content_wrap');
 	   var formHeight = $s4Wrap.height();
@@ -735,7 +763,7 @@ function windowResize(){
        if( !isInitFlash ){
            $('#FlashContent img').css('margin-left' , - ( 1648 - fscWidth ) / 2)
        }
-	}
+}
 
 
 
@@ -785,5 +813,5 @@ function topBarBreathe(){
 
 function playvideo(){
 	$.scrollTo( "#nav2", 200 );
-	_gaq.push(['_trackEvent', 'Video', 'Play', 'Desk']);
+	_gaq.push(['_trackEvent', 'Video', 'Video Play', 'Desk']);
 }

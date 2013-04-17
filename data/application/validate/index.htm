@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>jQuery validation</title>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery-1.9.0.js"></script>
+<script src="./js/jquery.validate.js"></script>
+
+<script>
+$.validator.setDefaults({
+	submitHandler: function() { alert("submitted!"); }
+});
+
+$().ready(function() {
+  
+  jQuery.validator.addMethod("isMobile", function(value, element) {
+  var length = value.length;
+  var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/;
+  return this.optional(element) || (length == 11 && mobile.test(value));
+ }, "请正确填写您的手机号码");
+	
+	
+	$("#signupForm").validate({
+		rules: {
+			chenghu: "required",
+			zhiye: "required",
+			firstname: "required",
+			lastname: "required",
+			phone: {
+				required: true,
+				isMobile : true
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			agree: "required"
+		},
+		messages: {
+			chenghu: "请输入称呼",
+			zhiye: "请输入职业",
+			firstname: "请输入姓",
+			lastname: "请输入名",
+			phone: {
+				required: "请输入手机号码",
+				isMobile : "请输入正确的手机号码"
+			},
+			email: "请输入邮箱",
+			agree: "请确认保密政策"
+		}
+	});
+
+	// propose username by combining first- and lastname
+	$("#username").focus(function() {
+		var firstname = $("#firstname").val();
+		var lastname = $("#lastname").val();
+		if(firstname && lastname && !this.value) {
+			this.value = firstname + "." + lastname;
+		}
+	});
+
+
+});
+</script>
+
+<style type="text/css">
+#signupForm { width: 850px; }
+#signupForm label.error {
+	margin-left: 2px;
+	width: auto;
+	display: inline;
+}
+#newsletter_topics label.error {
+	display: none;
+	margin-left: 103px;
+}
+
+.main{ width:850px; margin:0 auto; padding-left:50px; font-size:12px; line-height:18px;}
+
+.checkform_l{ width:580px; padding:0 60px 0 0; float:left;}
+
+.des1{color:#231f1e;}
+.des2{ color:#ec5f58; padding:10px 0 40px 0;}
+
+.chenghu{ width:270px; float:left; padding:0 40px 0 0;}
+.chenghu select{width:270px;}
+
+.zhiye{ width:270px; float:left;}
+.zhiye select{width:270px;}
+
+.firstname input,
+.lastname input,
+.email input,
+.phone input{ width:264px; border:1px solid #5d5d5d; margin:0; padding:0 2px; height:17px; line-height:17px;}
+
+.firstname{ width:270px; padding:10px 310px 0 0; float:left;}
+
+.lastname{ width:270px; padding:10px 310px 0 0; float:left;}
+
+.email{ width:270px; float:left; padding:10px 40px 0 0;}
+
+.phone{ width:270px; float:left; padding:10px 0 0 0;}
+
+.agree{ width:152px; margin:18px 0 0 0; height:185px; float:left; position:relative;}
+.agree input{ width:10px; height:10px; border:1px solid #ccc; margin-right:130px;}
+#agreelabel{ position:absolute; left:20px;}
+.agree a{ color:#231f1e; text-decoration:underline;}
+
+.submit{ width:88px; height:26px; background:url(./buttom.jpg); text-indent:-10000px; overflow:hidden; margin:0 0 0 640px;; padding:0; border:none;} 
+
+</style>
+
+</head>
+<body>
+	<div class="main">
+		<div class="des1">远方，对于追逐者来说，并不遥远；旅程，对于逍遥者来说，近在咫尺。</div>
+		<div class="des2">即刻填写您的详细资料：</div>
+
+		<form class="checkform" id="signupForm" method="get" action="" novalidate="novalidate">
+
+			<div class="checkform_l">
+
+				<div class="chenghu">
+					<label for="chenghu">称呼*</label>
+					<select id="chenghu" validate="required:true" title="Please select something!" name="chenghu">
+						<option value="">---</option>
+						<option value="1">先生</option>
+						<option value="2">小姐</option>
+					</select>
+				</div>
+
+
+				<div class="zhiye">
+					<label for="zhiye">职业*</label>
+					<select id="zhiye" validate="required:true" title="Please select something!" name="zhiye">
+						<option value="">---</option>
+						<option value="1">计算机</option>
+						<option value="2">医生</option>
+						<option value="3">职员</option>
+					</select>
+				</div>
+
+				<div class="firstname">
+					<label for="firstname">姓*</label>
+					<input id="firstname" name="firstname" type="text" class="error">
+				</div>
+        
+				<div class="lastname">
+					<label for="lastname">名*</label>
+					<input id="lastname" name="lastname" type="text" class="error">
+				</div>
+        
+				<div class="email">
+					<label for="email">电子邮件地址*</label>
+					<input id="email" name="email" type="email" class="error">
+				</div>
+        
+         
+				<div class="phone">
+					<label for="phone">手机号码*</label>
+					<input id="phone" name="phone" type="text" class="error">
+				</div>
+
+
+			</div>
+
+
+
+
+			<div class="agree">
+				<label id="agreelabel" for="agree">我阅读过保密政策*</label>
+				<input id="agree" class="checkbox error" type="checkbox" name="agree"> 
+				<div><a href="#">保密政策</a></div> 
+
+			</div>
+  
+			<input class="submit" type="submit" value="Submit">
+                
+		</form>
+
+	</div>
+
+
+
+
+</body></html>
