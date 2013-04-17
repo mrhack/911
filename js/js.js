@@ -279,7 +279,7 @@ $(function() {
   */
 
 
-  	if( ! isie6 ){
+  	if( ! isie6 && !isiPad){
         var $menuInner = $(".menu_inner");
 		$(".menu_wrap").hover(function(){
 			$menuInner.stop(true,false)
@@ -609,9 +609,11 @@ $(function() {
 	$('#section_video').css('margin-top' , videoMarginTop /2 );
 
 	// 10秒后收起top_down
-	setTimeout( function(){
-		$('.menu_wrap').trigger('mouseout');
-	} , 10000 );
+	if( !isiPad ){
+		setTimeout( function(){
+			$('.menu_wrap').trigger('mouseout');
+		} , 10000 );
+	}
 	topBarBreathe();
 });
 
