@@ -136,7 +136,7 @@ tr.odd {background-color: #dddddd;}
 .share_li1{ width:142px; height:365px; position:absolute; top:-365px; padding:0; display:none; }
 .share_li1 h3{ height:40px; width:132px; line-height:40px; background:url(../images/share_bg.png); color:#333333; padding:0 0 0 10px; float:left; }
 .share_li1 .share_li1_bottom{background:url(../images/share_bg.png); height:10px; line-height:10px; width:142px; float:left;}
-.share_li1 a{ width:142px; height:35px; display:block; float:left; margin:0 0 0 0;  overflow:hidden;}
+.share_li1 a,.share_li2 a{ padding-left: 50px;line-height: 34px;height:35px; display:block; margin:0 0 0 0;  overflow:hidden;}
 .share_li1 a:hover{ }
 .share_li1 a.a1{ background:url(../images/a1.png);}
 .share_li1 a.a1:hover{ background:url(../images/a1.png) #fff;}
@@ -156,7 +156,6 @@ tr.odd {background-color: #dddddd;}
 .share_li1 a.a8:hover{ background:url(../images/a8.png) #fff;}
 .share_li1 a.a9{ background:url(../images/a9.png) no-repeat;height:45px;}
 .share_li1 a.a9:hover{ background:url(../images/a9.png) #fff;}
-.share_li1 a span,.share_li2 a span{color:#555;display:block;margin-left:49px;height:35px;line-height: 35px;}
 
 .share2{ background-position:-45px 0; left:80px;}
 
@@ -164,7 +163,7 @@ tr.odd {background-color: #dddddd;}
 .share_li2{ width:142px; height:126px; position:absolute; top:-123px; padding:0; display:none;}
 .share_li2 h3{ height:40px; width:132px; line-height:40px; background:url(../images/share_bg.png); color:#333333; padding:0 0 0 10px; float:left; }
 .share_li2 .share_li2_bottom{background:url(../images/share_bg.png); height:10px; line-height:10px; width:142px; float:left;}
-.share_li2 a{ width:142px; height:38px; display:block; float:left; margin:0 0 0 0; overflow:hidden;}
+.share_li2 a{ height:38px; display:block; margin:0 0 0 0; overflow:hidden;}
 .share_li2 a.a10{ background:url(../images/a10.png);}
 .share_li2 a.a10:hover{ background:url(../images/a10.png) #fff;}
 .share_li2 a.a11{ background:url(../images/a11.png) no-repeat;height:45px;}
