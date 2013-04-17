@@ -230,10 +230,10 @@ box-shadow: 0 0 5px #000;background:#000;}
 
 .fancybox-close {width:47px;height:47px;background:url(../images/close.png) no-repeat;right:-47px;top:0;opacity:0.7;}
 .fancybox-close:hover {opacity:1;}
-.fancybox-prev {background:url(../images/nav_left.png) no-repeat left center;opacity:0.5;}
-.fancybox-prev:hover {opacity:1;}
-.fancybox-next {background:url(../images/nav_right.png) no-repeat right center;opacity:0.5;}
-.fancybox-next:hover {opacity:1;}
+.fancybox-prev {background:url(../images/nav_left.png) no-repeat left center;opacity:0.5;z-index:9999;}
+.no-touch .fancybox-prev:hover {opacity:1;}
+.fancybox-next {background:url(../images/nav_right.png) no-repeat right center;opacity:0.5;z-index:9999;}
+.no-touch .fancybox-next:hover {opacity:1;}
 
 #intro {padding:25px;color:#4D4D4D;line-height:150%;font-size:12px;}
 #intro h3 {font-size:14px;}
