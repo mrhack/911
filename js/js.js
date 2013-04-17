@@ -5,6 +5,7 @@ var whereIam = null;
 var isInitFlash = false;
 var isie6 = $.browser.msie && $.browser.version == 6;
 var isie8 = $.browser.msie && $.browser.version <= 8;
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var isEn;
 var _str_user_name="请输入姓名";
 var _str_chexing="请选择您感兴趣的车型";
@@ -63,9 +64,16 @@ $(function() {
 	$('#section_home').anystretch(siteurl+"images/car1.jpg");
 	$loadLeft.anystretch(siteurl+"images/loading_left.jpg",{'positionX':'right','elPosition': isie6 ? 'absolute' : 'fixed'});
 	$loadRight.anystretch(siteurl+"images/loading_right.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
-	$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 
 
+	if( isiPad ){
+		$s1.add($s2)
+			.add($s3)
+			.add($s4).css('position' , 'relative');
+		$('.blank_section').hide();
+	} else {
+		$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
+	}
 	if ( isie6 ){
 		$('.page-wrapper').css({'opacity':1 , 'overflow': 'hidden'});
 		$loadLeft.add($loadRight)
@@ -566,10 +574,21 @@ $(function() {
 		});
 
 	// init flash player
-	if( $.browser.webkit ){
-		initFlash( width-40 , (width-40)*0.42 );
+	if( !isiPad ){
+		if( $.browser.webkit ){
+			initFlash( width-40 , (width-40)*0.42 );
+		} else {
+			initFlash( '100%' , '100%' );
+		}
 	} else {
-		initFlash( '100%' , '100%' );
+		$('#FlashContent')
+		.css('position','relative').html([
+			'<video id="video_1" controls preload="none" width="100%" height="100%" poster="images/video.jpg" data-setup="{}">',
+				'<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />',
+				'<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />',
+				'<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />',
+			'</video>'
+			].join(''));
 	}
 	// resize flash
     //$win.scroll(function(){
