@@ -110,14 +110,14 @@ tr.odd {background-color: #dddddd;}
 .en .forrm_submit{width:190px; height:67px; background:url(../images/baoming_botton3_en.png) no-repeat; position:absolute; margin-left:43px;}
 .forrm_submit input{width:185px; height:61px; border:none;text-indent:-10000px; overflow:hidden; background:none;cursor:pointer;}
 .forrm_submit:hover {opacity:0.7;}
-.section4 h2 {top:98px;}
-.section4 .form_field1 {top:165px;display:none;}
-.section4 .form_field2 {top:226px;display:none;}
-.section4 .form_field3 {top:287px;display:none;}
-.section4 .form_field4 {top:350px;display:none;}
-.section4 .form_field5 {top:420px;display:none;}
-.section4 .form_field6 {top:490px;display:none;}
-.section4 .form_field7 {top:560px;text-align: center;display:none;}
+.section4 h2 {top:58px;}
+.section4 .form_field1 {top:125px;display:none;}
+.section4 .form_field2 {top:186px;display:none;}
+.section4 .form_field3 {top:247px;display:none;}
+.section4 .form_field4 {top:310px;display:none;}
+.section4 .form_field5 {top:380px;display:none;}
+.section4 .form_field6 {top:450px;display:none;}
+.section4 .form_field7 {top:520px;text-align: center;display:none;}
 .section4 {background:url(../images/section4_bg.png);}
 .section4 .content_wrap {background:url("../images/section4_bg.png") scroll 0 0 white;}
 .form_field4 label.error { position:absolute;left:304px;top:-7px;width:150px;}
