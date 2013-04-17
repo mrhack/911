@@ -49,12 +49,12 @@ $(function() {
 		$(this).hide();
 		$('#video_1').show();
 		$('#video_1')[0].play();
-		_gaq.push(['_trackEvent', 'Video', 'Play', 'Mobile']);
+		_gaq.push(['_trackEvent', 'Video', 'Video Play', 'Mobile']);
 
 	});
 	
 	$('#accordion_slider').one(function(){
-		_gaq.push(['_trackEvent', 'Gallery', 'Gallery', 'Mobile']);
+		_gaq.push(['_trackEvent', 'Gallery', 'Gallery Opened', 'Mobile']);
 	});
 
 
@@ -126,7 +126,7 @@ $(function() {
 
   	$('.baoming').click(function(e){
 		e.preventDefault();
-		_gaq.push(['_trackEvent', 'Registration', 'Registration', 'Mobile']);
+		_gaq.push(['_trackEvent', 'Registration', 'Registration Opened', 'Mobile']);
 		$('#session4_1').fadeOut(300);
 		$('#session4_2').delay(300).fadeIn(300);
 	});
