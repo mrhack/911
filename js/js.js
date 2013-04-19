@@ -16,6 +16,8 @@ var _str_rangelength= '请输入正确的11位手机号码';
 var _str_email="请输入邮箱";
 var _str_agree="请阅读保密政策";
 var _str_shared = "分享成功";
+var video_mp4 = "cn_desk.mp4";
+var video_flv = "cn_desk.flv";
 $(function() {
 	isEn = ($('body').hasClass('en'));
 	if(isEn)
@@ -29,6 +31,8 @@ $(function() {
 		 _str_email = "Please enter the mailbox";
 		 _str_agree = "Please read the Privacy Policy";
 		_str_shared = "Shared successful";
+		video_mp4 = "en_desk.mp4";
+		video_flv = "en_desk.flv";
 	}
 
 	var $loadLeft = $('.loading_left');
@@ -618,9 +622,7 @@ $(function() {
 		$('#FlashContent')
 		.css('position','relative').html([
 			'<video id="video_1" controls preload="none" width="100%" height="100%" poster="images/video.jpg" data-setup="{}">',
-				'<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />',
-				'<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />',
-				'<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />',
+				'<source src="http://911freedom.porsche-event.cn/videos/'+video_mp4+'" type="video/mp4" />',
 			'</video>'
 			].join(''));
 	}
@@ -680,7 +682,7 @@ function initFlash( stageW , stageH ){
 
 	// if you don't define these then the one defined in the XML file will be taken in consideration
 	flashvars.previewFilePath = siteurl+"video.jpg";
-	flashvars.videoFilePath = siteurl+"video.flv";
+	flashvars.videoFilePath = siteurl+"videos/"+video_flv;
 
 	// player settings(if not defined then the player will have the default settings defined in AS)
 	flashvars.settingsXMLFile = siteurl+"settings.xml";
