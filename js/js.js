@@ -72,6 +72,7 @@ $(function() {
 	
 
 	if( isiPad ){
+                             $('.top_bg,.bottom_bg').remove();
 		$s1.add($s2)
 			.add($s3)
 			.add($s4).css({'position': 'relative',top:0});
@@ -100,6 +101,7 @@ $(function() {
 		$("#FlashContent").anystretch(siteurl+"images/video.jpg",{'positionX':'left','elPosition': isie6 ? 'absolute' : 'fixed'});
 	}
 	if ( isie6 ){
+                            $('.top_bg,.bottom_bg,.menu_wrap').remove();
 		$('.page-wrapper').css({'opacity':1 , 'overflow': 'hidden'});
 		$loadLeft.add($loadRight)
 		.css({

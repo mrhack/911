@@ -1,2 +1,13 @@
 .menu a,.form2 h2 { font-family:"simhei","\u9ed1\u4f53";font-weight:bold;}
 .menu a {}
+.form2 label {font-family:"simsun";}
+.menu a {background:url(../images/nav_ie.gif) no-repeat;text-indent:-999em;}
+.menu a.active, .menu a:hover {background:#ededed url(../images/nav_ie.gif) no-repeat;text-indent:-999em;}
+#menu_1 {background-position:30px 40px;width:34px;}
+#menu_2 {background-position:-68px 40px;width:34px;}
+#menu_3 {background-position:-168px 40px;width:70px;}
+#menu_4 {background-position:-303px 40px;width:107px;}
+#menu_1:hover,#menu_1.active {background-position:30px -55px;width:34px;}
+#menu_2:hover,#menu_2.active {background-position:-68px -55px;width:34px;}
+#menu_3:hover,#menu_3.active {background-position:-168px -55px;width:70px;}
+#menu_4:hover,#menu_4.active {background-position:-303px -55px;width:107px;}
