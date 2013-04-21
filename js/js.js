@@ -16,7 +16,7 @@ var _str_rangelength= '请输入正确的11位手机号码';
 var _str_email="请输入邮箱";
 var _str_agree="请阅读保密政策";
 var _str_shared = "分享成功";
-var video_mp4 = "cn_desk.mp4";
+var video_mp4 = "cn_mobile.mp4";
 var video_flv = "cn_desk.flv";
 $(function() {
 	isEn = ($('body').hasClass('en'));
@@ -31,7 +31,7 @@ $(function() {
 		 _str_email = "Please enter the mailbox";
 		 _str_agree = "Please read the Privacy Policy";
 		_str_shared = "Shared successful";
-		video_mp4 = "en_desk.mp4";
+		video_mp4 = "en_mobile.mp4";
 		video_flv = "en_desk.flv";
 	}
 
@@ -186,11 +186,13 @@ $(function() {
 			{
 				var scrollTop = $win.scrollTop();
 	
-				var height = $win.height() ;
+				var s1_height = $('#section1').height();
+				var s2_height = $('#section2').height();
+				var s3_height = $('#section3').height();
 	
 				$s2.css({'top': height - scrollTop });
-				$s3.css({'top': height * 2 - scrollTop });
-				$s4.css({'top': height * 3 - scrollTop });
+				$s3.css({'top': height + s2_height - scrollTop });
+				$s4.css({'top': height + s2_height + s3_height - scrollTop });
 				if ( !isie6 ){
 					$s1.css({'top': - scrollTop * 0.1 });
 				}
@@ -209,7 +211,7 @@ $(function() {
 	//				$s4.find('.content_wrap').css({'background-position':'50% '+ offset + 'px'});
 	//			}
 	
-				if( height * 3 - scrollTop  < 300){
+				if( height + s2_height + s3_height - scrollTop  < 300){
 					if(!formOpened){
 						if(!isie8)
 						{
@@ -614,7 +616,7 @@ $(function() {
 	// init flash player
 	if( !isiPad ){
 		if( $.browser.webkit ){
-			initFlash( width-40 , (width-40)*0.42 );
+			initFlash( width , (width)*0.424 );
 		} else {
 			initFlash( '100%' , '100%' );
 		}
@@ -640,10 +642,10 @@ $(function() {
 //        }
 //    });
 
-	var videoMarginTop = height - $('#section_video').height();
-	videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
-	if(isiPad) videoMarginTop = 0;
-	$('#section_video').css('margin-top' , videoMarginTop /2 );
+	//var videoMarginTop = height - $('#section_video').height();
+	//videoMarginTop = videoMarginTop > 0?videoMarginTop:0;
+	//if(isiPad) videoMarginTop = 0;
+	//$('#section_video').css('margin-top' , videoMarginTop /2 );
 
 	// 10秒后收起top_down
 	if( !isiPad ){
@@ -694,23 +696,29 @@ function initFlash( stageW , stageH ){
 
 function windowResize(){
 	   // $(".top img, .bottom img, .car1 img").css('width', $(window).width()-40+'px');
-	   var winW = $(window).width();
-	   var winH = $(window).height();
+                var winW = $(window).width();
+                var winH = $(window).height();
+                var s1_height = $('#section1').height();
+                var s2_height = $('#section2').height();
+                var s3_height = $('#section3').height();
 	   $('.loading_left').css({ 'width' : winW * 0.5 + 1 , 'height' : winH});
 	   $('.loading_right').css({ 'width' : winW * 0.5 , 'height' : winH});
 
 		var containerWidth = winW;
 		var containerHeight = winH;
-		$('.section,.section_bg').height(containerHeight);
-		$('#section_video').height(containerWidth *0.42);
+		//$('.section,.section_bg').height(containerHeight);
+		$('#section_video').height(containerWidth *0.424);
 		$('.section').width(containerWidth);
-		$('#section_home').height(containerHeight-containerHeight*0.3)
-			.css({'margin-top':containerHeight*0.15});
+		$('#section_home').height(containerHeight-214)
+			.css({'margin-top':110});
 
 	   if( isie6 ){
 	   	   $('.blank_section').hide();
 	   } else {
-	   	   $('.blank_section').height(containerHeight);
+	   	   $('.blank_section').eq(0).height(containerHeight-110);
+	   	   $('.blank_section').eq(1).height(s2_height);
+	   	   $('.blank_section').eq(2).height(s3_height);
+	   	   $('.blank_section').eq(3).height(containerHeight+110);
 	   }
 
 	   var $acc = $('#accordion_slider');
@@ -728,7 +736,8 @@ function windowResize(){
 	   		.height(sliderImgHeight)
 	   		.css({'left':-imageLeft});
 	
-	   $acc.height(sliderImgHeight).css({'margin-top':(containerHeight - sliderImgHeight)/2});
+	   $acc.height(sliderImgHeight);
+                   //.css({'margin-top':(containerHeight - sliderImgHeight)/2});
 	   if(isiPad)
 	   {
 		   $acc.css({'margin-top':0});

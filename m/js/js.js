@@ -1,4 +1,3 @@
-
 $(function() {
    $(".top img, .bottom img, .car1 img").css('width', $(window).width()-40+'px')
    windowResize();

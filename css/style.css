@@ -42,6 +42,9 @@ tr.odd {background-color: #dddddd;}
 .menu a{ display:block; color:#a2a2a2; padding:0 30px; line-height:97px; float:left;font-size:14px;}
 .menu a.active, .menu a:hover{ color:#000; background:#ededed;}
 
+.top_bg {background:url(../images/sbg1.png) repeat-x;height:110px;width:100%; position:fixed;z-index:99;}
+.bottom_bg {background:url(../images/sbg.png) repeat-x;height:104px;width:100%; position:fixed;bottom:0;z-index:99;}
+
 .main{ position:relative; overflow:hidden;clear:both;}
 .top{ position:fixed;}
 .bottom{ position:fixed;}
@@ -173,7 +176,7 @@ tr.odd {background-color: #dddddd;}
 .en .share3 {background:url(../images/share_button_en.png) -90px 0;}
 .share3:hover {background-position:-90px -42px; width: 105px;}
 
-.control_button_wrap{ position:fixed; bottom:40px; z-index:11; width:100%;}
+.control_button_wrap{ position:fixed; bottom:40px; z-index:111; width:100%;}
 
 #share_friend .forrm_submit {width:190px; height:67px; background:url(../images/share_botton2.png) no-repeat; position:absolute; margin:0 auto;}
 .en #share_friend .forrm_submit { background:url(../images/share_botton2_en.png) no-repeat;}
@@ -185,7 +188,7 @@ tr.odd {background-color: #dddddd;}
 .control_button li a{ display:block; width:13px; height:13px; background:url(../images/slider_dot2.png) no-repeat center center;}
 .control_button li a:hover, .control_button li a.active{ background:url(../images/slider_dot1.png);}
 
-.copylink{ position:fixed; _position:relative; right:0; bottom:0;_float:right; padding:0 30px 30px 0;z-index:11;color:#999;}
+.copylink{ position:fixed; _position:relative; right:0; bottom:0;_float:right; padding:0 30px 30px 0;z-index:111;color:#999;}
 .copylink a{ color:#6b6b6b; font-size:13px;margin:0 4px;}
 .copylink a:hover{ color:black;}
 
@@ -209,10 +212,9 @@ box-shadow: 0 0 5px #000;background:#000;}
 .en #slider2_t {background:url(../images/slider_t2_en.png) no-repeat;width:147px;height:42px; position:absolute;left:50%;top:45%;margin-left:-68px;z-index:10;}
 .en #slider3_t {background:url(../images/slider_t3_en.png) no-repeat;width:118px;height:42px; position:absolute;left:50%;top:45%;margin-left:-59px;z-index:10;}
 
-.section_bg {padding:1px 0 0;}
+.section_bg {padding: 0;}
 .blank_section {width:100%;}
-.section{background: white url('../images/sbg.png') repeat-x;}
-.section_bg{background: url('../images/sbg1.png') repeat-x 0 bottom ;}
+.section{background:#fff url("../images/section4_bg.png") repeat scroll;}
 .section1 {width:100%;height:700px;z-index:1;}
 .section1 { position:fixed;width:100%;z-index:1;}
 .section2 { position:fixed;width:100%;z-index:2;}
